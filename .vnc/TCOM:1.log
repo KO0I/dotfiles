@@ -1,0 +1,39 @@
+
+Xvnc TigerVNC 1.2.0 - built Feb 13 2013 14:36:36
+Copyright (C) 1999-2011 TigerVNC Team and many others (see README.txt)
+See http://www.tigervnc.org for information on TigerVNC.
+Underlying X server release 11302000, The X.Org Foundation
+
+Initializing built-in extension Generic Event Extension
+Initializing built-in extension SHAPE
+Initializing built-in extension MIT-SHM
+Initializing built-in extension XInputExtension
+Initializing built-in extension XTEST
+Initializing built-in extension BIG-REQUESTS
+Initializing built-in extension SYNC
+Initializing built-in extension XKEYBOARD
+Initializing built-in extension XC-MISC
+Initializing built-in extension XFIXES
+Initializing built-in extension RENDER
+Initializing built-in extension RANDR
+Initializing built-in extension COMPOSITE
+Initializing built-in extension DAMAGE
+Initializing built-in extension MIT-SCREEN-SAVER
+Initializing built-in extension DOUBLE-BUFFER
+Initializing built-in extension RECORD
+Initializing built-in extension DPMS
+Initializing built-in extension X-Resource
+Initializing built-in extension XVideo
+Initializing built-in extension XVideo-MotionCompensation
+Initializing built-in extension VNC-EXTENSION
+Initializing built-in extension GLX
+
+Thu Feb 28 10:26:18 2013
+ vncext:      VNC extension running!
+ vncext:      Listening for VNC connections on all interface(s), port 5901
+ vncext:      created VNC server for screen 0
+/etc/X11/xinit/xinitrc: line 56: exec: xterm: not found
+/etc/X11/xinit/xinitrc: line 54: xterm: command not found
+/etc/X11/xinit/xinitrc: line 55: xterm: command not found
+/etc/X11/xinit/xinitrc: line 53: xclock: command not found
+/etc/X11/xinit/xinitrc: line 52: twm: command not found
