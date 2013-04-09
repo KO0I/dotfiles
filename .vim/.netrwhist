@@ -1,3 +1,6 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_cnt =4
 let g:netrw_dirhist_1='/home/patrick/dotfiles/.themes'
+let g:netrw_dirhist_2='/home/patrick/school/radio/8osh'
+let g:netrw_dirhist_3='/home/patrick/.config/nitrogen'
+let g:netrw_dirhist_4='/home/patrick/school/radio/10osh'

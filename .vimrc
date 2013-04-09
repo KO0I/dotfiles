@@ -24,6 +24,8 @@ filetype plugin indent on
 
 " Vim Folding settings
 set foldmethod=indent   "fold based on indentation
+hi Folded ctermbg=212 ctermfg=000
+"hi FoldColumn guibg=darkgrey guifg=red
 " set viewoptions=folds
 
 set tw=79 " Wrap lines longer than 79 characters

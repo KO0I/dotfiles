@@ -1,5 +1,4 @@
-
-! Map umlauts to RIGHT ALT + <key>
+! Map umlauts to RIGHT ALT +
 keycode 108 = Mode_switch
 keysym e = e E EuroSign
 keysym c = c C cent
@@ -7,10 +6,3 @@ keysym a = a A adiaeresis Adiaeresis
 keysym o = o O odiaeresis Odiaeresis
 keysym u = u U udiaeresis Udiaeresis
 keysym s = s S ssharp
-
-! Swap caps lock and escape
-remove Lock = Caps_Lock
-keysym Escape = Caps_Lock
-keysym Caps_Lock = Escape
-add Lock = Caps_Lock
-
