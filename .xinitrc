@@ -43,16 +43,29 @@ xcompmgr &
 xscreensaver -no-splash &
 
 # use a screensaver for our background
-xwinwrap -b -fs -sp -fs -nf -ov -- /usr/lib/xscreensaver/klein -root -delay 34513 -view-mode walk -orientation-marks -mode wireframe -appearance solid -colors rainbow -projection-3d orthographic -projection-4d orthographic -walk-speed 1 -root -window-id WID &
+# xwinwrap -b -fs -sp -fs -nf -ov -- /usr/lib/xscreensaver/klein -root -delay 34513 -view-mode walk -orientation-marks -mode wireframe -appearance solid -colors rainbow -projection-3d orthographic -projection-4d orthographic -walk-speed 1 -root -window-id WID &
 # we can alternatively use a wallpaper
 # feh --bg-scale ~/pictures/wallpaper.png
 
 #Using nitrogen:
-#nitrogen --restore &
+nitrogen --restore &
 
+#set Statusbar
 while true; do
-    xsetroot -name "$(date), $(acpi -b | awk 'sub(/,/",") {print $3, $4}')"
-    sleep 1s 
+  signal=$(iwconfig wifi0 |sed -e '6!D' -e 's/ Signal level=/S:/' -e 's/.\{30\}//' -e 's/Noise level=/N:/')
+  ip=$(ip addr show wifi0 | sed -e '3!d' -e 's/.\{3\}//' -e 's/inet/IP:/' -e 's/.\{41\}$//')
+  batt=$(LC_ALL=C acpi -b)
+  case $batt in *Discharging*)
+      batt="${batt#* * * }"
+      batt="${batt%%, *} "
+      ;;
+    *)
+      batt="charging"
+      ;;
+  esac
+  xsetroot -name "$batt[$signal]$ip $(date +%R)"
+  sleep 30
 done &
-
+#Fix wonky Java problems:
+wmname LG3D &
 exec dwm
