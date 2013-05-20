@@ -1,9 +1,9 @@
 urxvt.depth: 32
-urxvt*background: rgba:0000/0000/0000/dddd
+urxvt*background: rgba:0000/0000/0000/aaaa
 urxvt*blurRadius: 5
 urxvt*scrollBar: false
-URxvt*font: xft:terminus:pixelsize=15
-URxvt*boldFont: xft:terminus:bold:pixelsize=15
+URxvt*font: xft:terminus:pixelsize=14
+URxvt*boldFont: xft:terminus:bold:pixelsize=14
 #urxvt*font: -*-terminus-medium-r-normal--16-120-72-72-*-60-iso8859-*
 #urxvt*boldFont: -*-terminus-bold-r-normal--16-120-72-72-*-60-iso8859-*
 
