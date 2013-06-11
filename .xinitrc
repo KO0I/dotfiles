@@ -35,7 +35,7 @@ xset +fp /usr/share/fonts/local
 xset fp rehash
 
 # I like automatic numlock
-numlockx
+#numlockx
 # merge Xresources into urxvt settings
 xrdb -merge ~/.Xresources
 # throw in some simple compositing
@@ -52,19 +52,19 @@ nitrogen --restore &
 
 #set Statusbar
 while true; do
-  signal=$(iwconfig wifi0 |sed -e '6!D' -e 's/ Signal level=/S:/' -e 's/.\{30\}//' -e 's/Noise level=/N:/')
-  ip=$(ip addr show wifi0 | sed -e '3!d' -e 's/.\{3\}//' -e 's/inet/IP:/' -e 's/.\{41\}$//')
-  batt=$(LC_ALL=C acpi -b)
-  case $batt in *Discharging*)
-      batt="${batt#* * * }"
-      batt="${batt%%, *} "
-      ;;
-    *)
-      batt="charging"
-      ;;
-  esac
-  xsetroot -name "$batt[$signal]$ip $(date +%R)"
-  sleep 30
+#  signal=$(iwconfig wifi0 |sed -e '6!D' -e 's/ Signal level=/S:/' -e 's/.\{30\}//' -e 's/Noise level=/N:/')
+#  ip=$(ip addr show wifi0 | sed -e '3!d' -e 's/.\{3\}//' -e 's/inet/IP:/' -e 's/.\{41\}$//')
+#  batt=$(LC_ALL=C acpi -b)
+#  case $batt in *Discharging*)
+#      batt="${batt#* * * }"
+#      batt="${batt%%, *} "
+#      ;;
+#    *)
+#      batt="charging"
+#      ;;
+#  esac
+  xsetroot -name "$(date +%R)"
+  sleep 1
 done &
 #Fix wonky Java problems:
 wmname LG3D &

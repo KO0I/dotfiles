@@ -1,5 +1,5 @@
 urxvt.depth: 32
-urxvt*background: rgba:0000/0000/0000/aaaa
+urxvt*background: rgba:0000/0000/0000/0000
 urxvt*blurRadius: 5
 urxvt*scrollBar: false
 URxvt*font: xft:terminus:pixelsize=14
@@ -9,7 +9,7 @@ URxvt*boldFont: xft:terminus:bold:pixelsize=14
 
 urxvt*perl-lib:           /usr/lib/urxvt/perl/
 urxvt*perl-ext-common:    default,matcher
-urxvt*urlLauncher:        firefox 
+urxvt*urlLauncher:        chromium 
 urxvt*matcher.button:     1
 
 ! Tomorrow theme
