@@ -6,3 +6,10 @@ keysym a = a A adiaeresis Adiaeresis
 keysym o = o O odiaeresis Odiaeresis
 keysym u = u U udiaeresis Udiaeresis
 keysym s = s S ssharp
+! Greek chars with RIGHT ALT +
+keycode 108 = Mode_switch
+keysym w = w W Greek_omega U1E84
+keysym r = r R Greek_rho  U211D
+keysym t = t T Greek_tau Greek_theta
+! Math Symbols mapped the same way:
+keysym q = q Q radical U211A

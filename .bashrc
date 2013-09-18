@@ -14,6 +14,12 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias g='gvim --remote-silent'
 alias v='vim --remote-silent'
+alias ksp='~/games/KSP_linux/KSP.x86_64'
+alias netctl-restart='sudo systemctl restart netctl-auto@wlan0.service'
+alias quartus64='/opt/altera/13.0sp1/quartus/bin/quartus --64bit'
+alias modelsim='/opt/altera/13.0sp1/modelsim_ase/bin/vsim'
+alias starcraft='/home/patrick/.wine/drive_c/Program\ Files
+(x86)/StarCraft\ II/StarCraft\ II.exe'
 
 # Custom PS1
 # Checks for 256 color terminal
@@ -35,4 +41,5 @@ export EDITOR="vim"
 export HISTCONTROL="erasedups"
 export HISTFILESIZE=2500
 
-export PATH="~/bin:$PATH"
+#export PATH="~/bin:$PATH"
+export PATH="~/bin:~/scripts:~/games/KSP_Linux:/opt/altera/13.0sp1/quartus/bin:$PATH"

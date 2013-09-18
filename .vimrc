@@ -21,10 +21,10 @@ filetype plugin indent on
 "set autoindent
 "set smartindent
 "set smarttab
-
+hi Search ctermbg=016 ctermfg=000
 " Vim Folding settings
 set foldmethod=indent   "fold based on indentation
-hi Folded ctermbg=212 ctermfg=000
+hi Folded ctermbg=015 ctermfg=017
 "hi FoldColumn guibg=darkgrey guifg=red
 " set viewoptions=folds
 
