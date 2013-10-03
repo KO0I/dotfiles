@@ -15,11 +15,14 @@ alias ls='ls --color=auto'
 alias g='gvim --remote-silent'
 alias v='vim --remote-silent'
 alias ksp='~/games/KSP_linux/KSP.x86_64'
+alias starcraft='/home/patrick/.wine/drive_c/Program\ Files\ \(x86\)/StarCraft\ II/StarCraft\ II.exe'
 alias netctl-restart='sudo systemctl restart netctl-auto@wlan0.service'
+alias netctlstop='sudo systemctl stop netctl-auto@wlan0.service'
+
+# aliases for ECEN stuff
 alias quartus64='/opt/altera/13.0sp1/quartus/bin/quartus --64bit'
 alias modelsim='/opt/altera/13.0sp1/modelsim_ase/bin/vsim'
-alias starcraft='/home/patrick/.wine/drive_c/Program\ Files
-(x86)/StarCraft\ II/StarCraft\ II.exe'
+alias ltspice='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/LTC/LTSpiceIV/scad3.exe'
 
 # Custom PS1
 # Checks for 256 color terminal
