@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# user's directory
 dotfiles_dir=$( dirname $( readlink -f $0 ) )
 cd $dotfiles_dir
 
@@ -22,9 +23,8 @@ do
   # don't symlink the entire .config
   # directory
   [[ $f == ".config" ]] &&
-    f=$f/herbstluftwm
+    f=$f/dwm
   backup_and_symlink $f
 done
 
-backup_and_symlink
-#.gitignore_global
+backup_and_symlink .gitignore_global
