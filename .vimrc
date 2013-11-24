@@ -7,6 +7,7 @@
 set nocp " turn off vi compatibility
 set nu " Turn on line numbering. (nu|nonu)
 set grepprg=grep\ -nH\ $*
+set noswapfile
 
 filetype plugin on
 let g:tex_flavor='latex'
@@ -21,16 +22,17 @@ filetype plugin indent on
 "set autoindent
 "set smartindent
 "set smarttab
-hi Search ctermbg=016 ctermfg=000
+hi Search ctermbg=166 ctermfg=016
 " Vim Folding settings
 set foldmethod=indent   "fold based on indentation
-hi Folded ctermbg=015 ctermfg=017
+hi Folded ctermbg=29 cterm=bold ctermfg=016
 "hi FoldColumn guibg=darkgrey guifg=red
 " set viewoptions=folds
 
-set tw=79 " Wrap lines longer than 79 characters
-
+set tw=80 " Wrap lines longer than 79 characters
 set hidden " Allow for switching buffers without saving
+set encoding=utf8
+set ffs=dos,unix,mac
 
 set lazyredraw " Don't update display while executing macros
 
@@ -114,7 +116,7 @@ let g:SuperTabLongestEnhanced=1
 " Toggle the NERD Tree on an off with F7
 nmap <F7> :NERDTreeToggle<CR>
 
-let NERDTreeShowBookmarks=1 " Show the bookmarks table on startup
+" let NERDTreeShowBookmarks=1 " Show the bookmarks table on startup
 
 " Don't display these kinds of files
 let NERDTreeIgnore=[ '\.o$', '\.a$', '\.exe$', '\.pyc$',
