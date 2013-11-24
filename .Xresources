@@ -2,8 +2,10 @@ urxvt.depth: 32
 urxvt*background: rgba:0000/0000/0000/cccc
 urxvt*blurRadius: 5
 urxvt*scrollBar: false
-URxvt*font: xft:terminus:pixelsize=14
-URxvt*boldFont: xft:terminus:bold:pixelsize=14
+URxvt*font: xft:terminus:pixelsize=16
+URxvt*boldFont: xft:terminus:bold:pixelsize=16
+#URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true:hintin=true
+#URxvt*font: xft:Bitstream Vera Sans Mono::bold:pixelsize=12:antialias=true:hintin=true
 #urxvt*font: -*-terminus-medium-r-normal--16-120-72-72-*-60-iso8859-*
 #urxvt*boldFont: -*-terminus-bold-r-normal--16-120-72-72-*-60-iso8859-*
 

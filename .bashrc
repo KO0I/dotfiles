@@ -8,16 +8,27 @@
 # git bash completion
 source /usr/share/git/completion/git-completion.bash
 
-# modified commands
+# modified commands - utilities
 alias diff='colordiff' 				# requires colordiff package
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 alias g='gvim --remote-silent'
 alias v='vim --remote-silent'
+# crude but effective reset of wireless
+alias netctl-restart='sudo systemctl restart netctl-auto@wlan0.service'
+# lists all modified files (for backing up)
+alias pacman-mod=
+'sudo pacman -Qii | awk '/^MODIFIED/ {print $2}'
+# aliases that make games easier
 alias ksp='~/games/KSP_linux/KSP.x86_64'
 alias starcraft='/home/patrick/.wine/drive_c/Program\ Files\ \(x86\)/StarCraft\ II/StarCraft\ II.exe'
-alias netctl-restart='sudo systemctl restart netctl-auto@wlan0.service'
 alias netctlstop='sudo systemctl stop netctl-auto@wlan0.service'
+# for Ino (Arduino)
+alias inobus='ino build && ino upload && ino serial'
+alias inobu='ino build && ino upload'
+alias inob='ino build'
+
+
 
 # aliases for ECEN stuff
 alias quartus64='/opt/altera/13.0sp1/quartus/bin/quartus --64bit'
