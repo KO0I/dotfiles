@@ -17,8 +17,7 @@ alias v='vim --remote-silent'
 # crude but effective reset of wireless
 alias netctl-restart='sudo systemctl restart netctl-auto@wlan0.service'
 # lists all modified files (for backing up)
-alias pacman-mod=
-'sudo pacman -Qii | awk '/^MODIFIED/ {print $2}'
+alias pacman-mod='sudo pacman -Qii | awk '/^MODIFIED/ {print $2}''
 # aliases that make games easier
 alias ksp='~/games/KSP_linux/KSP.x86_64'
 alias starcraft='/home/patrick/.wine/drive_c/Program\ Files\ \(x86\)/StarCraft\ II/StarCraft\ II.exe'
