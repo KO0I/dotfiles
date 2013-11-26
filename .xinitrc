@@ -67,26 +67,37 @@ while true; do
   *)
     batt="${batt#* * * }"
     batt="${batt%%, *}+"
-    ;;
-  esac
+  ;;
+esac
 
-  #This section is for displaying network stuff
+#This section is for displaying network stuff
   wlan=$(LC_ALL=C ip  address show wlan0)
+  eth=$(LC_ALL=C ip address show eth0)
+#if[["$wlan"=="*UP*"||"eth"=="*UP*"]]
   case $wlan in
   *DOWN*)
-    wlan="[!w]" 
+    wlan_ipv4="[!w]" 
     ;;
   *UP*)
-    wlan=""
-    ipv4=$(ip -4 address show wlan0 | sed -e '2!D' -e 's/inet/1\}$//'|awk '{$1=$1}1')
-#    ;;
-#    wlan="${wlan#* * * * * * * * * * * * * * * * * * *}"
-#    wlan="${wlan%%, *}"
+  wlan_ipv4=$(ifconfig wlan0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')
     ;;
   esac
+  case $eth in
+  *DOWN*)
+  eth_ipv4=""
+    ;;
+  *UP*)
+  eth_ipv4=$(ifconfig eth0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')
+#    ;;
+    ;;
+  esac
+#else 
+#  eth_ipv4=""
+#  wlan_ipv4="[!w,!e]"
+#fi
 
 #xsetroot -name "$batt"
-xsetroot -name "$wlan "$ipv4" $batt $(date +%R)"
+xsetroot -name "$wlan_ipv4 $eth_ipv4 $batt $(date +%R)"
 sleep 2 
 done &
 
