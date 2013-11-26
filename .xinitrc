@@ -64,43 +64,47 @@ while true; do
     batt="${batt#* * * }"
     batt="${batt%%, *}-"
     ;;
-  *)
+  *)#charging
     batt="${batt#* * * }"
     batt="${batt%%, *}+"
   ;;
 esac
 
 #This section is for displaying network stuff
-  wlan=$(LC_ALL=C ip  address show wlan0)
+  wln=$(LC_ALL=C ip  address show wlan0)
   eth=$(LC_ALL=C ip address show eth0)
-#if[["$wlan"=="*UP*"||"eth"=="*UP*"]]
-  case $wlan in
+case $eth in
   *DOWN*)
-    wlan_ipv4="[!w]" 
+    eth_ipv4=""
+  case $wln in
+    *DOWN*)
+      wln_ipv4="[NO INTERNET]" 
     ;;
-  *UP*)
-  wlan_ipv4=$(ifconfig wlan0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')
+    *UP*)
+      wln_ipv4=IP:\ [w:$(ifconfig wlan0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')]
     ;;
   esac
-  case $eth in
-  *DOWN*)
-  eth_ipv4=""
-    ;;
+  ;;
   *UP*)
-  eth_ipv4=$(ifconfig eth0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')
-#    ;;
+    eth_ipv4=IP:\ [e:$(ifconfig eth0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')]
+  case $wln in
+    *DOWN*)
+      wln_ipv4="[!w] " 
+    ;;
+    *UP*)
+      wln_ipv4=""
     ;;
   esac
-#else 
-#  eth_ipv4=""
-#  wlan_ipv4="[!w,!e]"
-#fi
+  ;;
+esac
 
 #xsetroot -name "$batt"
-xsetroot -name "$wlan_ipv4 $eth_ipv4 $batt $(date +%R)"
+#xsetroot -name "$wln_ipv4$eth_ipv4 $batt $(date +%r)"
+#xsetroot -name "$wln_ipv4$eth_ipv4 $batt $(date +%a\ %m.%d.%y\ %R)"
+xsetroot -name "$wln_ipv4$eth_ipv4 :: Battery: $batt :: $(date +%a\ %m.%d.%y\ ::\ %R)"
 sleep 2 
 done &
-
+#~/dwm/dwm-update-status.sh &
 
 #Fix wonky Java problems:
 wmname LG3D &
