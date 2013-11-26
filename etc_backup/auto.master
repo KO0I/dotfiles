@@ -1,0 +1,14 @@
+# Sample auto.master file
+# Format of this file:
+# mountpoint map options
+# For details of the format look at autofs(5).
+
+#/media /etc/autofs/auto.media
+/media/misc     /etc/autofs/auto.misc     --timeout=5
+/media/net      /etc/autofs/auto.net      --timeout=60
+
+# Sheol and Brain mounts
+/media/sheol/backups  /etc/autofs/auto.sheolbackups --timeout=5
+#/media/sheol/dist     /etc/autofs/auto.sheoldist    --timeout=5
+#/media/sheol/loadsets /etc/autofs/auto.sheolloadsets  --timeout=5
+
