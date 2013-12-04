@@ -32,7 +32,7 @@ hi Folded ctermbg=29 cterm=bold ctermfg=016
 set tw=80 " Wrap lines longer than 79 characters
 set hidden " Allow for switching buffers without saving
 set encoding=utf8
-set ffs=dos,unix,mac
+set ffs=unix,dos,mac
 
 set lazyredraw " Don't update display while executing macros
 
@@ -107,6 +107,7 @@ nmap <silent> ,w :%s/\s\+$<CR>
 " Supertab Plugin settings
 
 set completeopt=longest,menu " select longest option, always show menu
+set noeb vb t_vb=
 
 let g:SuperTabDefaultCompletionType="context"
 let g:SuperTabLongestEnhanced=1
@@ -125,6 +126,7 @@ let NERDTreeIgnore=[ '\.o$', '\.a$', '\.exe$', '\.pyc$',
 
 " scons syntax
 au BufNewFile,BufRead SCons* set filetype=scons
+au BufNewFile,BufRead *.ino set filetype=c
 
 " clang_complete Plugin Settings
 

@@ -69,10 +69,19 @@ while true; do
     batt="${batt%%, *}+"
   ;;
 esac
-
+  #This section is for displaying the state of audio
+#  volume=$(amixer | grep 'Mono: Playback [[:digit:]]'| sed s/Mono:\ Playback\ //|sed '$d')
+#  case $volume in
+#    *\[off\])
+#    volume="[MUTED]"
+#    ;;
+#    *\[on\])
+#    volume="$(LC_ALL=C amixer | grep 'Mono: Playback [[:digit:]]'| sed s/Mono:\ Playback\ //|sed '$d') "
+#    ;;
+#esac
 #This section is for displaying network stuff
-  wln=$(LC_ALL=C ip  address show wlan0)
-  eth=$(LC_ALL=C ip address show eth0)
+wln=$(LC_ALL=C ip  address show wlan0)
+eth=$(LC_ALL=C ip address show eth0)
 case $eth in
   *DOWN*)
     eth_ipv4=""
@@ -102,7 +111,7 @@ esac
 #xsetroot -name "$wln_ipv4$eth_ipv4 $batt $(date +%r)"
 #xsetroot -name "$wln_ipv4$eth_ipv4 $batt $(date +%a\ %m.%d.%y\ %R)"
 xsetroot -name "$wln_ipv4$eth_ipv4 :: Battery: $batt :: $(date +%a\ %m.%d.%y\ ::\ %R)"
-sleep 2 
+#sleep 2 
 done &
 #~/dwm/dwm-update-status.sh &
 

@@ -12,12 +12,15 @@ source /usr/share/git/completion/git-completion.bash
 alias diff='colordiff' 				# requires colordiff package
 alias grep='grep --color=auto'
 alias ls='ls --color=auto'
-alias g='gvim --remote-silent'
-alias v='vim --remote-silent'
+alias v='vim'
+alias gitshove='git push -u origin master'
+alias pacman-orphan='sudo pacman -Rns $(pacman -Qtdq)'
+alias vino='vim src/sketch.ino'
+#alias pacmod='sudo pacman -Qii | awk '/^MODIFIED/ \{print $2\}''
 # crude but effective reset of wireless
 alias netctl-restart='sudo systemctl restart netctl-auto@wlan0.service'
 # lists all modified files (for backing up)
-alias pacman-mod='sudo pacman -Qii | awk '/^MODIFIED/ {print $2}''
+#alias pacman-mod='sudo pacman -Qii | awk \' /^MODIFIED/ {print $2}\' '
 # aliases that make games easier
 alias ksp='~/games/KSP_linux/KSP.x86_64'
 alias starcraft='/home/patrick/.wine/drive_c/Program\ Files\ \(x86\)/StarCraft\ II/StarCraft\ II.exe'
