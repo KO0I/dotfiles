@@ -16,6 +16,7 @@ alias v='vim'
 alias gitshove='git push -u origin master'
 alias pacman-orphan='sudo pacman -Rns $(pacman -Qtdq)'
 alias vino='vim src/sketch.ino'
+alias python='python2'
 #alias pacmod='sudo pacman -Qii | awk '/^MODIFIED/ \{print $2\}''
 # crude but effective reset of wireless
 alias netctl-restart='sudo systemctl restart netctl-auto@wlan0.service'
@@ -29,12 +30,14 @@ alias netctlstop='sudo systemctl stop netctl-auto@wlan0.service'
 alias inobus='ino build && ino upload && ino serial'
 alias inobu='ino build && ino upload'
 alias inob='ino build'
-
+# for Android
+alias mntmtp='mkdir /home/patrick/mtp && jmtpfs /home/patrick/mtp'
+alias umntmtp='fusermount -u /home/patrick/mtp && rmdir /home/patrick/mtp'
 
 
 # aliases for ECEN stuff
 alias quartus64='/opt/altera/13.0sp1/quartus/bin/quartus --64bit'
-alias modelsim='/opt/altera/13.0sp1/modelsim_ase/bin/vsim'
+# alias modelsim='/opt/altera/13.0sp1/modelsim_ase/bin/vsim'
 alias ltspice='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/LTC/LTSpiceIV/scad3.exe'
 
 # Custom PS1
