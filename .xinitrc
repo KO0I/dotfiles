@@ -1,5 +1,6 @@
 #!/bin/sh
 #
+# behavior on a great variety of systems!
 # ~/.xinitrc
 #
 # Executed by startx (run your window manager from here)
@@ -18,8 +19,28 @@ if [ -d /etc/X11/xinit/xinitrc.d ]; then
   unset f
 fi
 
+# Color codes
+black='\e[0;30m'
+red='\e[0;31m'
+green='\0;32m'
+orange='\0;33m'
+blue='\0;34m'
+purple='\0;35m'
+cyan='\0;36m'
+gray='\0;37m'
+
+darkgray='\e[1;30m'
+lightred='\e[1;31m'
+lightgreen='\1;32m'
+yellow='\1;33m'
+lightblue='\1;34m'
+lightpurple='\1;35m'
+lightcyan='\1;36m'
+white='\1;37m'
+
+
 # use all the same default apps as Xfce does
-export DE='xfce'
+#export DE='xfce'
 
 # for locally installed packages
 export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
@@ -54,7 +75,6 @@ xmodmap ~/.xmodmap &
 
 #  Using nitrogen:
 nitrogen --restore &
-
 #set Statusbar
 while true; do
   #This section is for displaying the state of the battery
@@ -80,8 +100,8 @@ esac
 #    ;;
 #esac
 #This section is for displaying network stuff
-wln=$(LC_ALL=C ip  address show wlan0)
-eth=$(LC_ALL=C ip address show eth0)
+wln=$(LC_ALL=C ip addr show wlan0)
+eth=$(LC_ALL=C ip addr show eth0)
 case $eth in
   *DOWN*)
     eth_ipv4=""
@@ -90,12 +110,16 @@ case $eth in
       wln_ipv4="[NO INTERNET]" 
     ;;
     *UP*)
-      wln_ipv4=IP:\ [w:$(ifconfig wlan0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')]
+    #  net-tools is deprecated, but if the new network utilities fail, the old
+    #  script is here:
+    #  wln_ipv4=IP:\ [w:$(ifconfig wlan0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')]
+      wln_ipv4=IP:\ [w:$(ip addr show wlan0 | grep 'inet ' | sed s/inet// |sed s/netmask\*.*.//| sed 's/^[ \t]*//'|sed 's/[ \t]*$//'|sed 's/\/..*//g')]
     ;;
   esac
   ;;
   *UP*)
-    eth_ipv4=IP:\ [e:$(ifconfig eth0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')]
+  #  eth_ipv4=IP:\ [e:$(ifconfig eth0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')]
+     eth_ipv4=IP:\ [e:$(ip addr show eth0 | grep 'inet ' | sed s/inet// |sed s/netmask\*.*.//| sed 's/^[ \t]*//'|sed 's/[ \t]*$//'|sed 's/\/..*//g')]
   case $wln in
     *DOWN*)
       wln_ipv4="[!w] " 
@@ -110,7 +134,10 @@ esac
 #xsetroot -name "$batt"
 #xsetroot -name "$wln_ipv4$eth_ipv4 $batt $(date +%r)"
 #xsetroot -name "$wln_ipv4$eth_ipv4 $batt $(date +%a\ %m.%d.%y\ %R)"
-xsetroot -name "$wln_ipv4$eth_ipv4 :: Battery: $batt :: $(date +%a\ %m.%d.%y\ ::\ %R)"
+#STATUS="${wln_ipv4}${eth_ipv4} :: Battery: ${batt} :: $(date +%a\ %m.%d.%y\ ::\ %R)"
+STATUS="${wln_ipv4}${eth_ipv4} :: Battery: ${batt} :: $(date +%a\ %m.%d.%y\ ::\ %l:%M\ %p)"
+#xsetroot -name "$wln_ipv4$eth_ipv4 :: Battery: $batt :: $(date +%a\ %m.%d.%y\ ::\ %R)"
+xsetroot -name "`echo -e ${STATUS}`"
 #sleep 2 
 done &
 #~/dwm/dwm-update-status.sh &

@@ -29,7 +29,7 @@ hi Folded ctermbg=29 cterm=bold ctermfg=016
 "hi FoldColumn guibg=darkgrey guifg=red
 " set viewoptions=folds
 
-set tw=80 " Wrap lines longer than 79 characters
+set tw=78 " Wrap lines longer than 79 characters
 set hidden " Allow for switching buffers without saving
 set encoding=utf8
 set ffs=unix,dos,mac
