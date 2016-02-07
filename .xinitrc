@@ -59,8 +59,8 @@ xset fp rehash
 #numlockx
 # merge Xresources into urxvt settings
 xrdb -merge ~/.Xresources
-# xbinkeys for audio control
-xbindkeys
+# For blueman
+source /etc/X11/xinit/xinitrc.d/*
 # throw in some simple compositing
 xcompmgr &
 xscreensaver -no-splash &
@@ -70,25 +70,26 @@ xmodmap ~/.xmodmap &
 
 # use a screensaver for our background
 #xwinwrap -b -fs -sp -fs -nf -ov -- /usr/lib/xscreensaver/klein -root -delay 34513 -view-mode walk -orientation-marks -mode wireframe -appearance solid -colors rainbow -projection-3d orthographic -projection-4d orthographic -walk-speed 1 -root -window-id WID &
+
 # we can alternatively use a wallpaper
 # feh --bg-scale ~/pictures/wallpaper.png
 
 #  Using nitrogen:
 nitrogen --restore &
 #set Statusbar
-while true; do
-  #This section is for displaying the state of the battery
-  batt=$(LC_ALL=C acpi -b)
-  case $batt in
-  *Discharging*)
-    batt="${batt#* * * }"
-    batt="${batt%%, *}-"
-    ;;
-  *)#charging
-    batt="${batt#* * * }"
-    batt="${batt%%, *}+"
-  ;;
-esac
+#while true; do
+#  #This section is for displaying the state of the battery
+#  batt=$(LC_ALL=C acpi -b)
+#  case $batt in
+#  *Discharging*)
+#    batt="${batt#* * * }"
+#    batt="${batt%%, *}-"
+#    ;;
+#  *)#charging
+#    batt="${batt#* * * }"
+#    batt="${batt%%, *}+"
+#  ;;
+#esac
   #This section is for displaying the state of audio
 #  volume=$(amixer | grep 'Mono: Playback [[:digit:]]'| sed s/Mono:\ Playback\ //|sed '$d')
 #  case $volume in
@@ -100,48 +101,74 @@ esac
 #    ;;
 #esac
 #This section is for displaying network stuff
-wln=$(LC_ALL=C ip addr show wlan0)
-eth=$(LC_ALL=C ip addr show eth0)
-case $eth in
-  *DOWN*)
-    eth_ipv4=""
-  case $wln in
-    *DOWN*)
-      wln_ipv4="[NO INTERNET]" 
-    ;;
-    *UP*)
-    #  net-tools is deprecated, but if the new network utilities fail, the old
-    #  script is here:
-    #  wln_ipv4=IP:\ [w:$(ifconfig wlan0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')]
-      wln_ipv4=IP:\ [w:$(ip addr show wlan0 | grep 'inet ' | sed s/inet// |sed s/netmask\*.*.//| sed 's/^[ \t]*//'|sed 's/[ \t]*$//'|sed 's/\/..*//g')]
-    ;;
-  esac
-  ;;
-  *UP*)
-  #  eth_ipv4=IP:\ [e:$(ifconfig eth0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')]
-     eth_ipv4=IP:\ [e:$(ip addr show eth0 | grep 'inet ' | sed s/inet// |sed s/netmask\*.*.//| sed 's/^[ \t]*//'|sed 's/[ \t]*$//'|sed 's/\/..*//g')]
-  case $wln in
-    *DOWN*)
-      wln_ipv4="[!w] " 
-    ;;
-    *UP*)
-      wln_ipv4=""
-    ;;
-  esac
-  ;;
-esac
+#wln=$(LC_ALL=C ip addr show wlan0)
+#eth=$(LC_ALL=C ip addr show eth0)
+#
+#case $eth in
+#  *DOWN*)
+#    eth_ipv4=""
+#  case $wln in
+#    *DOWN*)
+#      wln_ipv4="[NO INTERNET]" 
+#    ;;
+#    *UP*)
+#    #  net-tools is deprecated, but if the new network utilities fail, the old
+#    #  script is here:
+#    #  wln_ipv4=IP:\ [w:$(ifconfig wlan0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')]
+#      wln_ipv4=IP:\ [w:$(ip addr show wlan0 | grep -v 'inet6' |grep 'inet '|\
+#      sed s/inet// |sed s/netmask\*.*.//| sed 's/^[ \t]*//'|sed 's/[ \t]*$//'| sed 's/\/..*//g')]
+#    ;;
+#  esac
+#  ;;
+#  *UP*)
+#  #  eth_ipv4=IP:\ [e:$(ifconfig eth0 | grep 'inet ' | sed s/inet// | sed s/netmask\*.*.//|sed 's/^[ \t]*//'|sed 's/[ \t]*$//')]
+#     eth_ipv4=IP:\ [e:$(ip addr show eth0 |grep 'inet '|sed s/inet//|\
+#     sed s/netmask\*.*.//| sed 's/^[ \t]*//'|sed 's/[ \t]*$//'|sed 's/\/..*//g')]
+#  case $wln in
+#    *DOWN*)
+#      wln_ipv4="[!w] " 
+#    ;;
+#    *UP*)
+#      wln_ipv4=""
+#    ;;
+#  esac
+#  ;;
+#esac
 
+# Check cloak status
+#eip=$(geoiplookup $(curl http://ipecho.net/plain 2>/dev/null))
+#cloak_status=""
+#case $eip in
+#  *US*)
+#    cloak_status=""
+#  ;;
+#  *SE*)
+#    cloak_status="[CLOAKED]"
+#  ;;
+#esac
+
+# When using dwm as the window manager, the following is suggested:
+# I cannot, however, seem to get colorization to work!
 #xsetroot -name "$batt"
 #xsetroot -name "$wln_ipv4$eth_ipv4 $batt $(date +%r)"
 #xsetroot -name "$wln_ipv4$eth_ipv4 $batt $(date +%a\ %m.%d.%y\ %R)"
 #STATUS="${wln_ipv4}${eth_ipv4} :: Battery: ${batt} :: $(date +%a\ %m.%d.%y\ ::\ %R)"
-STATUS="${wln_ipv4}${eth_ipv4} :: Battery: ${batt} :: $(date +%a\ %m.%d.%y\ ::\ %l:%M\ %p)"
+#STATUS="${wln_ipv4}${eth_ipv4} ${cloak_status}::Battery: ${batt} :: $(date +%a\ %m.%d.%y\ ::\ %l:%M\ %p)"
 #xsetroot -name "$wln_ipv4$eth_ipv4 :: Battery: $batt :: $(date +%a\ %m.%d.%y\ ::\ %R)"
-xsetroot -name "`echo -e ${STATUS}`"
-#sleep 2 
-done &
+#xsetroot -name "`echo -e ${STATUS}`"
+#sudo tpb
+#sleep 60
+#done &
 #~/dwm/dwm-update-status.sh &
 
+# Set timer for power
+xautolock -time 30 -locker "sudo pm-suspend" -detectsleep & 
+
+# xbinkeys for audio control
+xbindkeys
 #Fix wonky Java problems:
-wmname LG3D &
-exec dwm
+# wmname LG3D &
+#exec dwm
+exec i3
+#exec awesome
+#exec xfce4-session

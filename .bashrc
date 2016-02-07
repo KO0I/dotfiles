@@ -15,18 +15,20 @@ source /usr/share/git/completion/git-completion.bash
   alias v='vim'
   alias gitshove='git push -u origin master'
   alias pacman-orphan='sudo pacman -Rns $(pacman -Qtdq)'
+  #alias changed-files='sudo pacman -Qii | awk '/^MODIFIED/ {print $2}''
   alias vino='vim src/sketch.ino'
   alias python='python2'
 #alias pacmod='sudo pacman -Qii | awk '/^MODIFIED/ \{print $2\}''
 
-# crude but effective reset of wireless
+#For German Translations
+alias transe2d='trans -b :de $@' 
+alias transd2e='trans -b :en $@' 
+
+# Reset of wireless
   alias nr='sudo systemctl restart netctl-auto@wlan0.service'
   # lists all modified files (for backing up)
   #alias pacman-mod='sudo pacman -Qii | awk \' /^MODIFIED/ {print $2}\' '
   # aliases that make games easier
-  alias ksp='~/games/KSP_linux/KSP.x86_64'
-  #alias starcraft='/home/patrick/.wine/drive_c/Program\ Files\ \(x86\)/StarCraft\ II/StarCraft\ II.exe'
-  alias armada2='wine /home/patrick/.wine/drive_c/Program\ Files/Activision/Star\ Trek\ Armada\ II/Armada2.exe'
   alias netctlstop='sudo systemctl stop netctl-auto@wlan0.service'
 # for Ino (Arduino)
   alias inobus='ino build && ino upload && ino serial'
@@ -37,19 +39,41 @@ source /usr/share/git/completion/git-completion.bash
   alias umntmtp='fusermount -u /home/patrick/mtp && rmdir /home/patrick/mtp'
 
 # aliases for ECEN stuff
-  alias quartus64='/home/patrick/altera/13.0sp1/quartus/bin/quartus --64bit'
-  alias altera-monitor='/home/patrick/altera/13.0sp1/University_Program/Monitor_Program/bin/altera-monitor-program'
-  alias modelsim='/home/patrick/altera/13.0sp1/modelsim_ase/bin/vsim'
-  alias ltspice='wine ~/.wine/drive_c/Program\ Files\ \(x86\)/LTC/LTSpiceIV/scad3.exe'
-  alias 4nec2='wine ~/.wine/drive_c/4nec2/exe/4nec2.exe'
+# alias quartus64='/home/patrick/altera/13.0sp1/quartus/bin/quartus --64bit'
+# alias altera-monitor='/home/patrick/altera/13.0sp1/University_Program/Monitor_Program/bin/altera-monitor-program'
+# alias modelsim='/home/patrick/altera/13.0sp1/modelsim_ase/bin/vsim'
+  alias ltspice='wine ~/.wine/drive_c/Program\ Files/LTC/LTSpiceIV/scad3.exe'
+# alias 4nec2='wine ~/.wine/drive_c/4nec2/exe/4nec2.exe'
   alias falstad='java -jar ~/build/falstad/circuit.jar'
 # for MATLAB
-  alias matp='/usr/local/MATLAB/R2013b/bin/matlab -nosplash -nodisplay -nodesktop'
-  alias matlab='/usr/local/MATLAB/R2013b/bin/matlab'
+# alias matp='/usr/local/MATLAB/R2014b/bin/matlab -nosplash -nodisplay -nodesktop'
+  alias matlab='/usr/local/MATLAB/R2014b/bin/matlab'
 # for Mathematica in Command Line
   alias mathmp='/opt/Wolfram/Mathematica/9.0/Executables/MathKernel'
 # for nios2-gcc
   alias nios2-gcc='/home/patrick/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/nios2-elf-gcc'
+# Other useful things
+# Show size of items
+  alias lsd='du -d 1 -h . | sort -n'
+# Toggle vpn and mac spoofing
+# alias cloak='sudo ~/scripts/cloak.sh'
+# alias decloak='sudo ~/scripts/decloak.sh'
+# alias recloak='sudo ~/scripts/recloak.sh'
+  alias pia='sudo systemctl start pia@Sweden'
+  alias repia='sudo systemctl restart pia@Sweden'
+  alias stopia='sudo systemctl stop pia@Sweden'
+  alias ipwhere='geoiplookup $(curl http://ipecho.net/plain 2>/dev/null)'
+
+# Microsoft Office Stuff
+  alias word='exec wine ~/.wine/drive_c/Program\ Files/Microsoft\ Office/Office14/WINWORD.EXE'
+  alias outlook='exec wine ~/.wine/drive_c/Program\ Files/Microsoft\ Office/Office14/OUTLOOK.EXE'
+  alias excel='exec wine ~/.wine/drive_c/Program\ Files/Microsoft\Office/Office14/EXCEL.EXE'
+  alias cuvpn='sudo openconnect -u paha5124 vpn.colorado.edu'
+
+# Use feh to preview images
+fp(){
+  feh -g 640x480 -d -S $@ $pwd >&1
+}
 
 # Custom PS1
 # Checks for 256 color terminal
@@ -108,12 +132,25 @@ b2d(){
   echo "ibase=2; $@"|bc
 }
 
+#Any to Base-Six
+a2s(){
+  echo "ibase=6; $@"|bc
+}
+
+# Helper function to list directories
+treels(){
+  tree -L $@ 
+}
+
 export EDITOR="vim"
 
 # remove all previous duplicates in command history before saving the current one
 export HISTCONTROL="erasedups"
 export HISTFILESIZE=2500
 
+export LS_COLORS="di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:*.deb=90"
+
 #export PATH="~/bin:$PATH"
 #export PATH="~/bin:~/scripts:/opt/altera/13.0sp1/quartus/bin:$PATH"
 export PATH="~/bin:~/scripts:~/games/KSP_Linux:/opt/altera/13.0sp1/quartus/bin:/opt/Wolfram/Mathematica/9.0/Executables:$PATH"
+eval $(dircolors -b $HOME/.dircolors)

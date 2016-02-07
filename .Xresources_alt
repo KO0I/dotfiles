@@ -1,0 +1,76 @@
+! vim: set filetype=xdefaults :
+! gjm scheme
+! *background: rgba:0000/0000/0000/dddd
+
+URxvt.font:		 xft:Terminus:size=9.5:antialias=false
+URxvt*letterSpace: -.5
+!URxvt*font: xft:Inconsolata for Powerline:regular:pixelsize=10,xft:Terminus, xft:terminess,\
+!              xft:Fixed:antialias=false:style=ja:pixelsize=10
+
+! Fonts
+URxvt.allow_bold:           true
+!URxvt*font:                 xft:Monaco for Powerline:size=9
+!URxvt*imFont:               xft:Monaco for Powerline:regular:size=9
+!URxvt*boldFont:             xft:Monaco for Powerline:bold:size=9
+!URxvt*italicFont:           xft:Monaco for Powerline:italic:size=9
+!URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=9
+
+
+! :Bind C-0, C-+ and C-= to activate small, medium, and big font size resp.
+URxvt.keysym.C-0: command:\033]710;-*-dina-medium-r-normal--13-*-*-*-*-*-*-*\007
+URxvt.keysym.C-minus: command:\033]710;-*-dina-medium-r-normal--15-*-*-*-*-*-*-*\007
+URxvt.keysym.C-equal: command:\033]710;-*-dina-medium-r-normal--16-*-*-*-*-*-*-*\007
+URxvt*fading: 10
+
+
+*cursorColor:   #cee318
+
+!*background:    #1C1C1C
+*background:	 #171717
+*foreground:    #c5c5c5
+
+! black
+*color0:        #474747
+!color0:			 #1c2022
+!*color0:        #474747
+*color8:        #6c6c6c
+
+! red
+*color1:        #ff005b
+*color9:        #ff00a0
+
+! green
+*color2:        #cee318
+*color10:       #ccff00
+
+! yellow
+!*color3:        #ffe755
+*color3:			 #EFFF00
+*color11:		 #DEFF00
+!*color11:       #ff9f00
+
+
+! blue
+*color4:        #048ac7
+*color12:       #48c6ff
+
+! magenta
+*color5:        #833c9f
+*color13:       #be67e1
+
+! cyan
+*color6:        #0ac1cd
+*color14:       #63e7f0
+
+! white
+*color7:        #e5e5e5
+*color15:       #f3f3f3
+
+URxvt.scrollBar: false
+
+URxvt*internalBorder:5
+!Urxvt.borderColor: #cee318
+!Urxvt.borderColor: #ff005b
+Urxvt.borderColor: #ffffff
+
+URxvt*externalBorder:3

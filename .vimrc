@@ -1,4 +1,4 @@
-" All plugins managed using git submodules and added using pathogen,
+"All plugins managed using git submodules and added using pathogen,
 " which is a submodule itself.
 "runtime bundle/pathogen/autoload/pathogen.vim
 "call pathogen#infect()
@@ -48,49 +48,37 @@ set lbr " Wrap text visually (does not insert '\n') (lbr|nolbr)
 
 "colorscheme molokai
 
-if has("gui_running")
-    set cc=+1 " highlight vertical column at textwidth + 1
-    set incsearch " I only want incremental search in the GUI
-    " I'm not a fan of the toolbar I never use stealing screen real estate
-    set guioptions=ac
-    if has("gui_gtk2")
-        set guifont=Terminus\ 9
-    elseif has("gui_win32")
-        set guifont=Envy\ Code\ R:h10:w6
-    endif
-endif
-
 " ruby
-autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
-autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
-autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
-autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
+"autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
+"autocmd FileType ruby,eruby let g:rubycomplete_buffer_loading = 1
+"autocmd FileType ruby,eruby let g:rubycomplete_rails = 1
+"autocmd FileType ruby,eruby let g:rubycomplete_classes_in_global = 1
 
 " function to insert a C/C++ header file guard
-function! s:InsertGuard()
-    let randlen = 7
-    let randnum = system("xxd -c " . randlen * 2 . " -l " . randlen . " -p /dev/urandom")
-    let randnum = strpart(randnum, 0, randlen * 2)
-    let fname = expand("%")
-    let lastslash = strridx(fname, "/")
-    if lastslash >= 0
-        let fname = strpart(fname, lastslash+1)
-    endif
-    let fname = substitute(fname, "[^a-zA-Z0-9]", "_", "g")
-    let randid = toupper(fname . "_" . randnum)
-    exec 'norm O#ifndef ' . randid
-    exec 'norm o#define ' . randid
-    exec 'norm o'
-    let origin = getpos('.')
-    exec '$norm o#endif /* ' . randid . ' */'
-    norm o
-    -norm O
-    call setpos('.', origin)
-    norm w
-endfunction
-
-noremap <silent> <F12>  :call <SID>InsertGuard()<CR>
-inoremap <silent> <F12>  <Esc>:call <SID>InsertGuard()<CR>
+"function! s:InsertGuard()
+"    let randlen = 7
+"    let randnum = system("xxd -c " . randlen * 2 . " -l " . randlen . " -p /dev/urandom")
+"    let randnum = strpart(randnum, 0, randlen * 2)
+"    let fname = expand("%")
+"    let lastslash = strridx(fname, "/")
+"    if lastslash >= 0
+"        let fname = strpart(fname, lastslash+1)
+"    endif
+"    let fname = substitute(fname, "[^a-zA-Z0-9]", "_", "g")
+"    let randid = toupper(fname . "_" . randnum)
+"    exec 'norm O#ifndef ' . randid
+"    exec 'norm o#define ' . randid
+"    exec 'norm o'
+"    let origin = getpos('.')
+"    exec '$norm o#endif /* ' . randid . ' */'
+"    norm o
+"    -norm O
+"    call setpos('.', origin)
+"    norm w
+"endfunction
+"
+"noremap <silent> <F12>  :call <SID>InsertGuard()<CR>
+"inoremap <silent> <F12>  <Esc>:call <SID>InsertGuard()<CR>
 
 " generate ctags recursively at the current working directory
 nmap <silent> <F8> :silent !ctags -R<CR>
@@ -109,32 +97,39 @@ nmap <silent> ,w :%s/\s\+$<CR>
 set completeopt=longest,menu " select longest option, always show menu
 set noeb vb t_vb=
 
-let g:SuperTabDefaultCompletionType="context"
-let g:SuperTabLongestEnhanced=1
+"let g:SuperTabDefaultCompletionType="context"
+"let g:SuperTabLongestEnhanced=1
 
 " NERD Tree Plugin Settings
 
 " Toggle the NERD Tree on an off with F7
-nmap <F7> :NERDTreeToggle<CR>
+"nmap <F7> :NERDTreeToggle<CR>
 
 " let NERDTreeShowBookmarks=1 " Show the bookmarks table on startup
 
 " Don't display these kinds of files
-let NERDTreeIgnore=[ '\.o$', '\.a$', '\.exe$', '\.pyc$',
-                   \ '^Thumbs\.db$', '^\.sconsign\.dblite$',
-                   \ '\.swp$', '\.lib$' ]
-
-" scons syntax
-au BufNewFile,BufRead SCons* set filetype=scons
-au BufNewFile,BufRead *.ino set filetype=c
+"let NERDTreeIgnore=[ '\.o$', '\.a$', '\.exe$', '\.pyc$',
+"                   \ '^Thumbs\.db$', '^\.sconsign\.dblite$',
+"                   \ '\.swp$', '\.lib$' ]
 
 " clang_complete Plugin Settings
-
-let g:clang_user_options='|| exit 0'
-let g:clang_complete_auto=0
 
 " Vim sessions Plugin Settings
 
 let g:session_autoload='no'
 let g:session_autosave='no'
 let g:session_persist_globals=['&makeprg']
+
+" Disable Arrow Keys
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+" Disable Home Row Keys(!)
+"noremap h <NOP>
+"noremap j <NOP>
+"noremap k <NOP>
+"noremap l <NOP>
+
+
+
