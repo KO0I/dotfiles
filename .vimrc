@@ -25,7 +25,7 @@ filetype plugin indent on
 hi Search ctermbg=166 ctermfg=016
 " Vim Folding settings
 set foldmethod=indent   "fold based on indentation
-hi Folded ctermbg=29 cterm=bold ctermfg=016
+"hi Folded ctermbg=29 cterm=bold ctermfg=016
 "hi FoldColumn guibg=darkgrey guifg=red
 " set viewoptions=folds
 
@@ -46,7 +46,9 @@ set hls " Higlhight search
 
 set lbr " Wrap text visually (does not insert '\n') (lbr|nolbr)
 
-"colorscheme molokai
+"colorscheme jellybeans
+
+
 
 " ruby
 "autocmd FileType ruby,eruby set omnifunc=rubycomplete#Complete
@@ -91,6 +93,7 @@ nmap ,n :set invhls<CR>:set hls?<CR>
 
 " Remove trailing whitespace
 nmap <silent> ,w :%s/\s\+$<CR>
+
 
 " Supertab Plugin settings
 

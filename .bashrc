@@ -89,6 +89,9 @@ if [ -t 1 ]; then
 	fi
 fi
 
+# Made on the internet
+# export PS1="\u@\h \w\W >>\[$(tput sgr0)\]"
+
 #Colorize
 man() 
   {
