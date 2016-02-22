@@ -84,6 +84,6 @@ xautolock -time 30 -locker "sudo pm-suspend" -detectsleep &
 xbindkeys
 #Fix wonky Java problems:
 # wmname LG3D &
+source /home/patrick/.dwmstatus.sh
 exec dwm
 # dwm status bar:
-source /home/patrick/dwmstatus.sh
