@@ -86,4 +86,4 @@ xbindkeys
 # wmname LG3D &
 exec dwm
 # dwm status bar:
-/home/$USER/dwmstatus.sh
+source /home/patrick/dwmstatus.sh
