@@ -47,6 +47,7 @@ set hls " Higlhight search
 set lbr " Wrap text visually (does not insert '\n') (lbr|nolbr)
 
 "colorscheme jellybeans
+"colorscheme molokai
 
 
 

@@ -20,9 +20,15 @@ source /usr/share/git/completion/git-completion.bash
   alias python='python2'
 #alias pacmod='sudo pacman -Qii | awk '/^MODIFIED/ \{print $2\}''
 
+# Launch Encrypted Messaging
+alias signalapp='/usr/bin/chromium --profile-directory=Default --app-id=bikioccmkafdpakkkcpdbppfkghcmihk'
+
 #For German Translations
-alias transe2d='trans -b :de $@' 
-alias transd2e='trans -b :en $@' 
+alias e2d='trans -b :de $@' 
+alias d2e='trans -b :en $@' 
+
+# For DWM
+alias redwm='cd ~/dwm; updpkgsums; makepkg -fi --noconfirm; killall dwm'
 
 # Reset of wireless
   alias nr='sudo systemctl restart netctl-auto@wlan0.service'
@@ -157,3 +163,9 @@ export LS_COLORS="di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:*.deb=90"
 #export PATH="~/bin:~/scripts:/opt/altera/13.0sp1/quartus/bin:$PATH"
 export PATH="~/bin:~/scripts:~/games/KSP_Linux:/opt/altera/13.0sp1/quartus/bin:/opt/Wolfram/Mathematica/9.0/Executables:$PATH"
 eval $(dircolors -b $HOME/.dircolors)
+
+PATH="/home/patrick/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/home/patrick/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/patrick/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/patrick/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/patrick/perl5"; export PERL_MM_OPT;
