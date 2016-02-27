@@ -9,6 +9,9 @@ set nu " Turn on line numbering. (nu|nonu)
 set grepprg=grep\ -nH\ $*
 set noswapfile
 
+" Use a different list style
+let g:netrw_liststyle=3
+
 filetype plugin on
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat='pdf'

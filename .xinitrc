@@ -71,11 +71,16 @@ xmodmap ~/.xmodmap &
 # use a screensaver for our background
 #xwinwrap -b -fs -sp -fs -nf -ov -- /usr/lib/xscreensaver/klein -root -delay 34513 -view-mode walk -orientation-marks -mode wireframe -appearance solid -colors rainbow -projection-3d orthographic -projection-4d orthographic -walk-speed 1 -root -window-id WID &
 
+# Glitch background
+
+#xwinwrap -b -fs -sp -fs -nf -ov -- /usr/lib/xscreensaver/bsod -root -delay 18 -no-windows -no-nt -no-2k -no-msdos -no-amiga -no-glados -no-android -no-apple2 -no-nvidia -no-os2 -no-mac -no-mac1 -no-macsbug -no-macx -no-os390 -no-vms -no-hvx -no-atm -no-linux -no-hppalinux -no-solaris -no-sco -no-hpu -no-tru64 WID &
+
+
 # we can alternatively use a wallpaper
 # feh --bg-scale ~/pictures/wallpaper.png
 
 #  Using nitrogen:
-nitrogen --restore &
+#nitrogen --restore &
 
 # Set timer for power
 xautolock -time 30 -locker "sudo pm-suspend" -detectsleep & 

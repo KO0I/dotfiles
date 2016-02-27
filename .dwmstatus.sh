@@ -75,8 +75,8 @@ esac
 # Disk Status
 rootdf=rt:\ $(df -h | grep '/dev/sda3' | awk '{print $5}')
 win7df=w7:\ $(df -h | grep '/dev/sdb1' | awk '{print $5}')
-swap1df=swp1:\ $(df -h | grep '/dev/sda2' | awk '{print $5}')
-swap2df=swp2:\ $(df -h | grep '/dev/sdb2' | awk '{print $5}')
+#swap1df=swp1:\ $(df -h | grep '/dev/sda2' | awk '{print $5}')
+#swap2df=swp2:\ $(df -h | grep '/dev/sdb2' | awk '{print $5}')
 
 
 
