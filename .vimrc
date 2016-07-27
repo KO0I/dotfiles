@@ -51,6 +51,7 @@ set lbr " Wrap text visually (does not insert '\n') (lbr|nolbr)
 
 "colorscheme jellybeans
 "colorscheme molokai
+colorscheme chasing_logic 
 
 
 

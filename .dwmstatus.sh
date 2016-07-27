@@ -5,16 +5,19 @@
 while true; do
   #This section is for displaying the state of the battery
   batt=$(LC_ALL=C acpi -b)
-  case $batt in
-  *Discharging*)
-    batt="${batt#* * * }"
-    batt="${batt%%, *}-"
-    ;;
-  *)#charging
-    batt="${batt#* * * }"
-    batt="${batt%%, *}+"
-  ;;
-  esac
+  # For Thinkpad X250; has two batteries
+  b0=$(LC_ALL=C acpi -b | grep 'Battery 0'| cut -d " " -f 4 | sed 's/.$//')
+  b1=$(LC_ALL=C acpi -b | grep 'Battery 1'| cut -d " " -f 4 | sed 's/.$//')
+ # case $batt in
+ # *Discharging*)
+ #   batt="${batt#* * * }"
+ #   batt="${batt%%, *}-"
+ #   ;;
+ # *)#charging
+ #   batt="${batt#* * * }"
+ #   batt="${batt%%, *}+"
+ # ;;
+ # esac
  #This section is for displaying the state of audio
   volume=$(amixer | grep 'Mono: Playback [[:digit:]]'| sed s/Mono:\ Playback\ //|sed '$d')
   case $volume in

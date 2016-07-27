@@ -1,40 +1,76 @@
-urxvt.depth: 32
-urxvt*background: rgba:0000/0000/0000/cccc
-urxvt*blurRadius: 5
-urxvt*scrollBar: false
-# Size 10
-#URxvt*font: xft:terminus:pixelsize=10:antialias=false
-#URxvt*boldFont: xft:terminus:bold:pixelsize=10:antialias=false
-# Size 16
-URxvt*font: xft:terminus:pixelsize=16:antialias=false
-URxvt*boldFont: xft:terminus:bold:pixelsize=16:antialias=false
-#URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=12:antialias=true:hintin=true
-#URxvt*font: xft:Bitstream Vera Sans Mono::bold:pixelsize=12:antialias=true:hintin=true
-#urxvt*font: -*-terminus-medium-r-normal--16-120-72-72-*-60-iso8859-*
-#urxvt*boldFont: -*-terminus-bold-r-normal--16-120-72-72-*-60-iso8859-*
+urxvt.depth:32
+urxvt*background: rgba:0F1F/0D2F/0D2F/FFFF
+urxvt*blurRadius: 2
+urxvt*scrollBar: False
 
-urxvt*perl-lib:           /usr/lib/urxvt/perl/
-urxvt*perl-ext-common:    default,matcher
-urxvt*urlLauncher:        chromium 
-urxvt*matcher.button:     1
+urxvt.font:     xft:Terminus:size=12:antialias=false
+urxvt.boldfont: xft:Terminus:bold:size=12:antialias=false
+!urxvt.font:     xft:Inconsolata:style=Semibold:pixelsize=16:antialias=true:hinting=slight
+!urxvt.font:     xft:Inconsolata:style=Semibold:pixelsize-16:antialias=false:hinting=slight
+!urxvt.font:     xft:Inconsolata:style=bold:pixelsize=16:antialias=true:hinting=slight
+urxvt.allow_bold: True
 
-! Tomorrow theme
-urxvt*foreground: #d0d0d0
-urxvt*cursorColor: #AEAFAD
-urxvt*color0: #000000
-! urxvt*color1: #d54e53
-urxvt*color1: #deadab
-urxvt*color2: #b9ca4a
-urxvt*color3: #e78c45
-urxvt*color4: #7aa6da
-urxvt*color5: #c397d8
-urxvt*color6: #70c0b1
-urxvt*color7: #424242
-urxvt*color8: #666666
-urxvt*color9: #FF3334
-urxvt*color10: #9ec400
-urxvt*color11: #e7c547
-urxvt*color12: #7aa6da
-urxvt*color13: #b777e0
-urxvt*color14: #53ced6
-urxvt*color15: #2a2a2a
+ ! --- special colors ---
+
+ *background: #0c0c0c
+ *foreground: #eaeaea
+
+ ! --- standard colors ---
+
+! ! black
+ *color0: #000000
+! ! bright_black
+ *color8: #0c0c0c
+! ! red
+ *color1: #a95056
+! ! bright_red
+ *color9: #ca9292
+! ! green
+ *color2: #5faa45
+! ! bright_green
+ *color10: #9ccc87
+! ! yellow
+ *color3: #a99945
+! ! bright_yellow
+ *color11: #d4d58f
+! ! blue
+ *color4: #4e619f
+! ! bright_blue
+ *color12: #919dc1
+! ! magenta
+ *color5: #98509f
+! ! bright_magenta
+ *color13: #c092c1
+! ! cyan
+ *color6: #4eaa8e
+! ! bright_cyan
+ *color14: #91ccb6
+! ! white
+ *color7: #969696
+! ! bright_white
+ *color15: #eaeaea
+
+!*background: #151B1A
+!*foreground: #8FA388
+!
+!! Alternate foreground
+!! !*foreground: #7E9982
+!!
+! *cursorColor: #9E6438
+!
+! *color0: #2E2B38
+! *color1: #984E66
+! *color2: #7A8C54
+! *color3: #9E6438
+! *color4: #395667
+! *color5: #9D916B
+! *color6: #536556
+! *color7: #828181
+! *color8: #474159
+! *color9: #A86D56
+! *color10: #9FB274
+! *color11: #B29F5E
+! *color12: #507A91
+! *color13: #B89855
+! *color14: #7E9982
+! *color15: #BDBDA4

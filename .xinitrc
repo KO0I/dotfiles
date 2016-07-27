@@ -80,15 +80,16 @@ xmodmap ~/.xmodmap &
 # feh --bg-scale ~/pictures/wallpaper.png
 
 #  Using nitrogen:
-#nitrogen --restore &
+nitrogen --restore &
 
 # Set timer for power
-xautolock -time 30 -locker "sudo pm-suspend" -detectsleep & 
+#xautolock -time 30 -locker "sudo pm-suspend" -detectsleep & 
 
 # xbinkeys for audio control
 xbindkeys
 #Fix wonky Java problems:
-# wmname LG3D &
-source /home/patrick/.dwmstatus.sh
-exec dwm
+ wmname LG3D &
+ source /home/patrick/.dwmstatus_x250.sh
+#exec dwm
+exec ~/build/dwm-6.0/src/dwm-6.0/dwm
 # dwm status bar:
