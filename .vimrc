@@ -99,6 +99,9 @@ nmap ,n :set invhls<CR>:set hls?<CR>
 " Remove trailing whitespace
 nmap <silent> ,w :%s/\s\+$<CR>
 
+" dmenu search
+map <c-e> :call DmenuOpen("tabe")<cr>
+map <c-f> :call DmenuOpen("e")<cr>
 
 " Supertab Plugin settings
 
@@ -138,6 +141,22 @@ noremap <Right> <NOP>
 "noremap j <NOP>
 "noremap k <NOP>
 "noremap l <NOP>
+
+" dmenu search
+
+" Strip the newline from the end of a string
+function! Chomp(str)
+  return substitute(a:str, '\n$', '', '')
+endfunction
+
+" Find a file and pass it to cmd
+function! DmenuOpen(cmd)
+  let fname = Chomp(system("find . | dmenu -i -l 20 -p " . a:cmd))
+  if empty(fname)
+    return
+  endif
+  execute a:cmd . " " . fname
+endfunction
 
 
 

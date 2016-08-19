@@ -1,5 +1,5 @@
 urxvt.depth:32
-urxvt*background: rgba:0F1F/0D2F/0D2F/FFFF
+urxvt*background: rgba:2222/2222/2222/FFFF
 urxvt*blurRadius: 2
 urxvt*scrollBar: False
 

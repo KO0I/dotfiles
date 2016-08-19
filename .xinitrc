@@ -88,8 +88,13 @@ nitrogen --restore &
 # xbinkeys for audio control
 xbindkeys
 #Fix wonky Java problems:
- wmname LG3D &
- source /home/patrick/.dwmstatus_x250.sh
-#exec dwm
-exec ~/build/dwm-6.0/src/dwm-6.0/dwm
+wmname LG3D &
 # dwm status bar:
+source /home/patrick/.dwmstatus_x250.sh
+
+# Run Installed dwm
+#exec dwm
+
+# Run Local Build of dwm
+exec ~/build/dwm-6.0/src/dwm-6.0/dwm
+
