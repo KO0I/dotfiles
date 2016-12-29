@@ -1,5 +1,7 @@
+!#define RANDBG #ff0c0c
+
 urxvt.depth:32
-urxvt*background: rgba:2222/2222/2222/FFFF
+!urxvt*background: rgba:2222/2222/2222/FFFF
 urxvt*blurRadius: 2
 urxvt*scrollBar: False
 
@@ -10,67 +12,5 @@ urxvt.boldfont: xft:Terminus:bold:size=12:antialias=false
 !urxvt.font:     xft:Inconsolata:style=bold:pixelsize=16:antialias=true:hinting=slight
 urxvt.allow_bold: True
 
- ! --- special colors ---
-
- *background: #0c0c0c
- *foreground: #eaeaea
-
- ! --- standard colors ---
-
-! ! black
- *color0: #000000
-! ! bright_black
- *color8: #0c0c0c
-! ! red
- *color1: #a95056
-! ! bright_red
- *color9: #ca9292
-! ! green
- *color2: #5faa45
-! ! bright_green
- *color10: #9ccc87
-! ! yellow
- *color3: #a99945
-! ! bright_yellow
- *color11: #d4d58f
-! ! blue
- *color4: #4e619f
-! ! bright_blue
- *color12: #919dc1
-! ! magenta
- *color5: #98509f
-! ! bright_magenta
- *color13: #c092c1
-! ! cyan
- *color6: #4eaa8e
-! ! bright_cyan
- *color14: #91ccb6
-! ! white
- *color7: #969696
-! ! bright_white
- *color15: #eaeaea
-
-!*background: #151B1A
-!*foreground: #8FA388
-!
-!! Alternate foreground
-!! !*foreground: #7E9982
-!!
-! *cursorColor: #9E6438
-!
-! *color0: #2E2B38
-! *color1: #984E66
-! *color2: #7A8C54
-! *color3: #9E6438
-! *color4: #395667
-! *color5: #9D916B
-! *color6: #536556
-! *color7: #828181
-! *color8: #474159
-! *color9: #A86D56
-! *color10: #9FB274
-! *color11: #B29F5E
-! *color12: #507A91
-! *color13: #B89855
-! *color14: #7E9982
-! *color15: #BDBDA4
+! IMPORT COLOR
+#include "/home/patrick/.xcolors/ph_golden.xcolors"

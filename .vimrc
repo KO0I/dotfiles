@@ -12,7 +12,7 @@ set noswapfile
 " Use a different list style
 let g:netrw_liststyle=3
 
-filetype plugin on
+filetype plugin indent on
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_ViewRule_pdf='zathura'

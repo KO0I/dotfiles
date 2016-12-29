@@ -1,0 +1,39 @@
+ ! --- special colors ---
+
+ *background: #0c0c0c
+ *foreground: #eaeaea
+
+ ! --- standard colors ---
+
+! ! black
+ *color0: #000000
+! ! bright_black
+ *color8: #0c0c0c
+! ! red
+ *color1: #a95056
+! ! bright_red
+ *color9: #ca9292
+! ! green
+ *color2: #5faa45
+! ! bright_green
+ *color10: #9ccc87
+! ! yellow
+ *color3: #a99945
+! ! bright_yellow
+ *color11: #d4d58f
+! ! blue
+ *color4: #4e619f
+! ! bright_blue
+ *color12: #919dc1
+! ! magenta
+ *color5: #98509f
+! ! bright_magenta
+ *color13: #c092c1
+! ! cyan
+ *color6: #4eaa8e
+! ! bright_cyan
+ *color14: #91ccb6
+! ! white
+ *color7: #969696
+! ! bright_white
+ *color15: #eaeaea

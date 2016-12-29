@@ -9,26 +9,56 @@ bindkey -e
 # The following lines were added by compinstall
 zstyle :compinstall filename '/home/patrick/.zshrc'
 
-#autoload -Uz compinit colors 
-autoload -Uz colors 
+autoload -Uz compinit colors 
+#autoload -Uz colors 
 autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 colors
+compinit
 # End of lines added by compinstall
+
+# key bindings
+ bindkey "\e[1~" beginning-of-line
+ bindkey "\e[4~" end-of-line
+ bindkey "\e[5~" beginning-of-history
+ bindkey "\e[6~" end-of-history
+ bindkey "\e[3~" delete-char
+ bindkey "\e[2~" quoted-insert
+ bindkey "\e[5C" forward-word
+ bindkey "\eOc" emacs-forward-word
+ bindkey "\e[5D" backward-word
+ bindkey "\eOd" emacs-backward-word
+# bindkey "\e[C" forward-word
+# bindkey "\e[D" backward-word
+ bindkey "^H" backward-delete-word
+# # for rxvt
+ bindkey "e[8~" end-of-line
+ bindkey "e[7~" beginning-of-line#
+#bindkey "${terminfo[khome]}" beginning-of-line
+#bindkey "${terminfo[kend]}" end-of-line
+# Home and End keys
 
 # Aliases
 alias sz='source ~/.zshrc'
 alias vz='vim ~/.zshrc'
 alias ls='ls --color=auto'
-alias ll='ls -last'
+alias ll='ls -l'
+alias lll='ls -last'
 alias lh='ls -d .* --color=auto'
+alias mirror='sudo ~/scripts/reflect.sh'
+#alias pacinstalled='pacman -Qei | awk '/^Name/ { name=$3 } /^Groups/ { if ( $3 != "base" && $3 != "base-devel" ) { print name } }''
+
+# Requires geoiplookup
+alias ipwhere='geoiplookup $(curl http://ipecho.net/plain 2>/dev/null)'
+
 
 # Requires google-translate package
 alias e2d='google-translate en de $@'
 alias d2e='google-translate de en $@'
 
+alias mathematica='/home/$USER/bin/mathematica'
 # Simple Prompt
 PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$reset_color%} %{$fg[green]%}>> %{$reset_color%}"
 
@@ -36,7 +66,10 @@ PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$
 bindkey "^[[A" up-line-or-beginning-search    #Up
 bindkey "^[[B" down-line-or-beginning-search  #Down
 
-# Little Helper Functions
+# For fun:
+steam='LIBGL_DRI3_DISABLE=1 steam'
+
+# Helper Functions
 h2d(){
   echo "ibase=16; $@"|bc
 }
@@ -76,7 +109,13 @@ h2b64(){
 
 # Helper function to list directories
 treels(){
-  tree -L $@ 
+  tree -L $@ | less
+}
+
+xprop_peek(){
+  xprop |awk '
+  /^WM_CLASS/{sub(/.* =/, "instance:"); sub(/,/, "\nclass:"); print}
+  /^WM_NAME/{sub(/.* =/, "title:"); print}'
 }
 
 export EDITOR="vim"

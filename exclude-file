@@ -1,0 +1,9 @@
+# rclone exclude rule file
+# run with --exclude-from option
+
+*.bak
+*.git
+*.gitignore
+.sane
+.sage
+

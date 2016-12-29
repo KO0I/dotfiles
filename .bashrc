@@ -169,3 +169,5 @@ PERL5LIB="/home/patrick/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LI
 PERL_LOCAL_LIB_ROOT="/home/patrick/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
 PERL_MB_OPT="--install_base \"/home/patrick/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=/home/patrick/perl5"; export PERL_MM_OPT;
+
+export QSYS_ROOTDIR="/home/patrick/build/quartus-free/src/home/patrick/opt/altera/16.0/quartus/sopc_builder/bin"
