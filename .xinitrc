@@ -90,7 +90,7 @@ xbindkeys
 #Fix wonky Java problems:
 wmname LG3D &
 # dwm status bar:
- source /home/patrick/.dwmstatus_x250.sh
+# source /home/patrick/.dwmstatus_x250.sh
 
 # Run package-managed dwm
 #exec dwm

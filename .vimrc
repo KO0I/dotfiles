@@ -99,14 +99,16 @@ nmap ,n :set invhls<CR>:set hls?<CR>
 " Remove trailing whitespace
 nmap <silent> ,w :%s/\s\+$<CR>
 
-" dmenu search
-map <c-e> :call DmenuOpen("tabe")<cr>
-map <c-f> :call DmenuOpen("e")<cr>
+" dmenu search TODO takes too long to run!
+"map <c-e> :call DmenuOpen("tabe")<cr>
+"map <c-f> :call DmenuOpen("e")<cr>
 
 " Supertab Plugin settings
 
 set completeopt=longest,menu " select longest option, always show menu
 set noeb vb t_vb=
+
+set nofoldenable    " disable folding
 
 "let g:SuperTabDefaultCompletionType="context"
 "let g:SuperTabLongestEnhanced=1
@@ -150,13 +152,21 @@ function! Chomp(str)
 endfunction
 
 " Find a file and pass it to cmd
-function! DmenuOpen(cmd)
-  let fname = Chomp(system("find . | dmenu -i -l 20 -p " . a:cmd))
-  if empty(fname)
-    return
-  endif
-  execute a:cmd . " " . fname
-endfunction
+"function! DmenuOpen(cmd)
+"  let fname = Chomp(system("find . | dmenu -i -l 20 -p " . a:cmd))
+"  if empty(fname)
+"    return
+"  endif
+"  execute a:cmd . " " . fname
+"endfunction
 
 
+" Plugin manager vim-plug (junegunn)
+call plug#begin('~/.vim/plugged')
 
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/goyo.vim'
+Plug 'gerw/vim-latex-suite'
+
+" Init plugin system
+call plug#end()

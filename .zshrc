@@ -60,7 +60,9 @@ alias d2e='google-translate de en $@'
 
 alias mathematica='/home/$USER/bin/mathematica'
 # Simple Prompt
-PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$reset_color%} %{$fg[green]%}>> %{$reset_color%}"
+#PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$reset_color%} %{$fg[green]%}>> %{$reset_color%}"
+glyph=$(awk 'BEGIN { print "\302\273"; }')
+PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$reset_color%} %{$fg[green]%}$glyph %{$reset_color%}"
 
 # Bind Keys
 bindkey "^[[A" up-line-or-beginning-search    #Up

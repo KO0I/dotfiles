@@ -1,4 +1,6 @@
 !#define RANDBG #ff0c0c
+!
+urxvt*urgentOnBell: true
 
 urxvt.depth:32
 !urxvt*background: rgba:2222/2222/2222/FFFF
