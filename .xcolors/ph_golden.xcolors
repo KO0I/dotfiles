@@ -1,7 +1,7 @@
  ! --- special colors ---
 
- *background: #0c0c0c
- *foreground: #eaeaea
+ xterm*background: #0c0c0c
+ xterm*foreground: #eaeaea
 
  ! --- standard colors ---
 
