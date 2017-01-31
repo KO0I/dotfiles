@@ -32,13 +32,16 @@ compinit
  bindkey "\eOd" emacs-backward-word
 # bindkey "\e[C" forward-word
 # bindkey "\e[D" backward-word
- bindkey "^H" backward-delete-word
-# # for rxvt
- bindkey "e[8~" end-of-line
- bindkey "e[7~" beginning-of-line#
-#bindkey "${terminfo[khome]}" beginning-of-line
-#bindkey "${terminfo[kend]}" end-of-line
+# bindkey "^H" backward-delete-word
+
 # Home and End keys
+#   for rxvt:
+# bindkey "\e[8~" end-of-line
+# bindkey "\e[7~" beginning-of-line#
+
+#   for other?
+bindkey "${terminfo[khome]}" beginning-of-line
+bindkey "${terminfo[kend]}" end-of-line
 
 # Aliases
 alias sz='source ~/.zshrc'
