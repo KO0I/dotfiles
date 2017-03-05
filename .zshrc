@@ -2,7 +2,8 @@
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
-setopt appendhistory extendedglob
+#setopt appendhistory extendedglob
+setopt ksharrays nobeep autocd pushdsilent autopushd extendedglob autolist automenu listtypes inc_append_history share_history
 unsetopt autocd beep nomatch notify 
 bindkey -e
 # End of lines configured by zsh-newuser-install
@@ -20,19 +21,23 @@ compinit
 # End of lines added by compinstall
 
 # key bindings
- bindkey "\e[1~" beginning-of-line
- bindkey "\e[4~" end-of-line
- bindkey "\e[5~" beginning-of-history
- bindkey "\e[6~" end-of-history
- bindkey "\e[3~" delete-char
- bindkey "\e[2~" quoted-insert
- bindkey "\e[5C" forward-word
- bindkey "\eOc" emacs-forward-word
- bindkey "\e[5D" backward-word
- bindkey "\eOd" emacs-backward-word
-# bindkey "\e[C" forward-word
-# bindkey "\e[D" backward-word
-# bindkey "^H" backward-delete-word
+#bindkey 'e[1~' beginning-of-line
+#bindkey '\e[4~' end-of-line
+#bindkey '\e[5~' beginning-of-history
+#bindkey '\e[6~' end-of-history
+#bindkey '\e[3~' delete-char
+#bindkey '\e[2~' quoted-insert
+#bindkey '\e[5C' forward-word
+#bindkey '\eOc' emacs-forward-word
+#bindkey '\e[5D' backward-word
+#bindkey '\eOd' emacs-backward-word
+ bindkey "^[[H" beginning-of-line   # Home key
+ bindkey "^[[F" end-of-line         # End key
+ bindkey "^[[3~" delete-char        # Del key
+ bindkey "^[[3;5~" delete-word      # Ctrl+Del
+ bindkey "^?" backward-kill-word    # Ctrl+BackSpace
+ bindkey "^[[1;5C" forward-word     # Ctrl+ ->
+ bindkey "^[[1;5D" backward-word    # Ctrl+ <-
 
 # Home and End keys
 #   for rxvt:
@@ -43,6 +48,8 @@ compinit
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 
+hash -d dwmdir="/home/patrick/build/dwm-6.0/src/dwm-6.0"
+
 # Aliases
 alias sz='source ~/.zshrc'
 alias vz='vim ~/.zshrc'
@@ -52,6 +59,9 @@ alias lll='ls -last'
 alias lh='ls -d .* --color=auto'
 alias mirror='sudo ~/scripts/reflect.sh'
 #alias pacinstalled='pacman -Qei | awk '/^Name/ { name=$3 } /^Groups/ { if ( $3 != "base" && $3 != "base-devel" ) { print name } }''
+
+alias mntmtp='if [ -d mtp ]; then; else mkdir /home/patrick/mtp; fi && jmtpfs /home/patrick/mtp'
+alias umntmtp='fusermount -u /home/patrick/mtp && rmdir /home/patrick/mtp'
 
 # Requires geoiplookup
 alias ipwhere='geoiplookup $(curl http://ipecho.net/plain 2>/dev/null)'
@@ -64,8 +74,8 @@ alias d2e='google-translate de en $@'
 alias mathematica='/home/$USER/bin/mathematica'
 # Simple Prompt
 #PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$reset_color%} %{$fg[green]%}>> %{$reset_color%}"
-glyph=$(awk 'BEGIN { print "\302\273"; }')
-PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$reset_color%} %{$fg[green]%}$glyph %{$reset_color%}"
+#PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$reset_color%} %{$fg[green]%}>> %{$reset_color%}"
+export PS1=$'%{\e[0;35m%}[%{\e[0;36m%}%n%{\e[0;37m%}@%{\e[0;31m%}%m%{\e[0m%}: %{\e[1;34m%}%~%{\e[0;35m%}]%{\e[0m%}\n%{\e[0;37m%}%h %{\e[0;32m%}$%{\e[0m%} '
 
 # Bind Keys
 bindkey "^[[A" up-line-or-beginning-search    #Up
@@ -75,6 +85,11 @@ bindkey "^[[B" down-line-or-beginning-search  #Down
 steam='LIBGL_DRI3_DISABLE=1 steam'
 
 # Helper Functions
+# Rename an xterm window
+xtname(){
+  echo "\033]0;$@\007"
+}
+
 h2d(){
   echo "ibase=16; $@"|bc
 }
