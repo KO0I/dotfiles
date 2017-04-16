@@ -53,6 +53,7 @@ hash -d dwmdir="/home/patrick/build/dwm-6.0/src/dwm-6.0"
 # Aliases
 alias sz='source ~/.zshrc'
 alias vz='vim ~/.zshrc'
+alias vzh='vim ~/.zsh_history'
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias lll='ls -last'
@@ -71,11 +72,12 @@ alias ipwhere='geoiplookup $(curl http://ipecho.net/plain 2>/dev/null)'
 alias e2d='google-translate en de $@'
 alias d2e='google-translate de en $@'
 
-alias mathematica='/home/$USER/bin/mathematica'
+#alias mathematica='/home/$USER/bin/mathematica'
+alias mathematica='/home/patrick/bin/Wolfram/Mathematica/10.4/mathematica'
 # Simple Prompt
 #PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$reset_color%} %{$fg[green]%}>> %{$reset_color%}"
 #PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$reset_color%} %{$fg[green]%}>> %{$reset_color%}"
-export PS1=$'%{\e[0;35m%}[%{\e[0;36m%}%n%{\e[0;37m%}@%{\e[0;31m%}%m%{\e[0m%}: %{\e[1;34m%}%~%{\e[0;35m%}]%{\e[0m%}\n%{\e[0;37m%}%h %{\e[0;32m%}$%{\e[0m%} '
+export PS1=$'%{\e[0;44m%}[%{\e[0;36m%} %n%{\e[0;37m%}@%{\e[0;31m%}%m%{\e[0m%}: %{\e[1;34m%}%~ %{\e[0;44m%}]%{\e[0m%}\n%{\e[0;37m%}%h %{\e[0;32m%}$%{\e[0m%} '
 
 # Bind Keys
 bindkey "^[[A" up-line-or-beginning-search    #Up
@@ -88,6 +90,12 @@ steam='LIBGL_DRI3_DISABLE=1 steam'
 # Rename an xterm window
 xtname(){
   echo "\033]0;$@\007"
+}
+
+# 'alias' cd and ls together
+function chpwd(){
+	emulate -L zsh
+	ls
 }
 
 h2d(){
