@@ -34,8 +34,8 @@ compinit
  bindkey "^[[H" beginning-of-line   # Home key
  bindkey "^[[F" end-of-line         # End key
  bindkey "^[[3~" delete-char        # Del key
- bindkey "^[[3;5~" delete-word      # Ctrl+Del
- bindkey "^?" backward-kill-word    # Ctrl+BackSpace
+# bindkey "^[[3;5~" delete-word      # Ctrl+Del
+# bindkey "^?" backward-kill-word    # Ctrl+BackSpace
  bindkey "^[[1;5C" forward-word     # Ctrl+ ->
  bindkey "^[[1;5D" backward-word    # Ctrl+ <-
 

@@ -96,7 +96,7 @@ wmname LG3D &
 #exec dwm
 
 # Run Local Build of dwm-6.0
-exec ~/build/dwm-6.0/src/dwm-6.0/dwm > dwm.log
+exec ~/build/dwm-6.0/src/dwm > dwm.log
 
 # Run bspwm
 #sxhkd &
