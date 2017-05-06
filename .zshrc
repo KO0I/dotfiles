@@ -48,7 +48,8 @@ compinit
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 
-hash -d dwmdir="/home/patrick/build/dwm-6.0/src/dwm-6.0"
+hash -d dwmdir="/home/patrick/build/dwm-6.0/src"
+hash -d surfdir="/home/patrick/build/surf-git/src"
 
 # Aliases
 alias sz='source ~/.zshrc'
