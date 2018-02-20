@@ -61,12 +61,22 @@ xset fp rehash
 xrdb -merge ~/.Xresources
 # For blueman
 source /etc/X11/xinit/xinitrc.d/*
-# throw in some simple compositing
-xcompmgr &
+
+# For kensington mouse
+xinput set-prop 10 libinput Middle Emulation Enabled 1
+
+# Compositing
+xcompmgr &   # Light
+#compton &    # Fancy
+#compton -D 8 -m 0.97 --frame-opacity=0.7 & 
+#compton -e  0.5 -inactive-dim 0.3 -m &    # Fancier
 xscreensaver -no-splash &
 
 # set keyboard settings
 xmodmap ~/.xmodmap &
+
+# Make Caps a Ctrl key
+setxkbmap -option ctrl:nocaps &
 
 # use a screensaver for our background
 #xwinwrap -b -fs -sp -fs -nf -ov -- /usr/lib/xscreensaver/klein -root -delay 34513 -view-mode walk -orientation-marks -mode wireframe -appearance solid -colors rainbow -projection-3d orthographic -projection-4d orthographic -walk-speed 1 -root -window-id WID &
@@ -90,13 +100,16 @@ xbindkeys
 #Fix wonky Java problems:
 wmname LG3D &
 # dwm status bar:
-# source /home/patrick/.dwmstatus_x250.sh
+# source /home/patrick/scripts/.dwmstatus_x250.sh
 
 # Run package-managed dwm
 #exec dwm
 
 # Run Local Build of dwm-6.0
+while true; do ~/.dwmstatus_x250.sh; sleep 30; done &
 exec ~/build/dwm-6.0/src/dwm > dwm.log
+#~/.sleeper &
+#exec openbox
 
 # Run bspwm
 #sxhkd &

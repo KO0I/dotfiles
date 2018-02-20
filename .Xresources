@@ -10,14 +10,15 @@ urxvt*scrollBar: False
 
 !urxvt.font:     Terminus (TTF):size=12:antialias=false
 !urxvt.boldfont: xft:Terminus:bold:size=12:antialias=false
-xterm*font:     xft:Terminus:size=12:antialias=false
+!xterm*font:     xft:Terminus:size=12:antialias=false
+xterm*font:     xft:xos4 Terminus:size=10:antialias=true
 !xterm*boldfont: xft:Terminus:bold:size=12:antialias=false
 !xterm*faceName: DejaVu Sans Mono Book
 !xterm*faceName: Terminus (TTF):size=13:antialias=true 
 !urxvt.font:     xft:Inconsolata:style=Semibold:pixelsize=16:antialias=true:hinting=slight
 !urxvt.font:     xft:Inconsolata:style=Semibold:pixelsize-16:antialias=false:hinting=slight
 !urxvt.font:     xft:Inconsolata:style=bold:pixelsize=16:antialias=true:hinting=slight
-urxvt.allow_bold: True
+!urxvt.allow_bold: True
 
 ! IMPORT COLOR
 #include "/home/patrick/.xcolors/ph_golden.xcolors"

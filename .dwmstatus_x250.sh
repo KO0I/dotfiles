@@ -18,7 +18,8 @@
   #b2=$(LC_ALL=C acpi -b | grep 'Battery 1'| cut -d " " -f 4 | sed s/.$//)
   
 # default display is both batteries as bat1/bat2
-batt_msg="$b1·$b2"
+#batt_msg="$b1·$b2" # fancy symbol
+batt_msg="$b1.$b2"  # ASCII
   
 #echo $b1
 #echo $b2
@@ -35,7 +36,8 @@ elif [ $plugged1 != 'Unknown' ] && [ $plugged2 == 'Unknown' ]; then
   batt_msg="$b1"
 elif [ $plugged1 == 'Full' ] || ([ $plugged2 != 'Full' ] && [\
   $plugged2 != 'Unknown' ]); then
-  batt_msg="$b1·$b2"
+  #batt_msg="$b1·$b2"
+  batt_msg="$b1.$b2"  # ASCII
 elif [ $plugged1 == 'Full' ] || [ $plugged1 == 'Full' ]; then
   batt_msg="<FULL>"
 else batt_msg="error"
@@ -54,12 +56,8 @@ ldate=$(date +%a\ %m.%d.%y)
 lweek=$(date +%W)
 ltime=$(date +%T)
 
-#g="::"
-#g="•"
-
-#g="·"
-#º¤”°
-xsetroot -name "☼:$pct_bright ◊:$batt_msg $ldate w№$lweek $ltime"
+#xsetroot -name "☼:$pct_bright ◊:$batt_msg $ldate w№$lweek $ltime"
+xsetroot -name "br:$pct_bright bat:$batt_msg $ldate w:$lweek $ltime"
 
 #sleep 5
 #done &

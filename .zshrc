@@ -4,7 +4,7 @@ HISTSIZE=1000
 SAVEHIST=1000
 #setopt appendhistory extendedglob
 setopt ksharrays nobeep autocd pushdsilent autopushd extendedglob autolist automenu listtypes inc_append_history share_history
-unsetopt autocd beep nomatch notify 
+unsetopt beep nomatch notify 
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
@@ -48,22 +48,24 @@ compinit
 bindkey "${terminfo[khome]}" beginning-of-line
 bindkey "${terminfo[kend]}" end-of-line
 
-hash -d dwmdir="/home/patrick/build/dwm-6.0/src"
-hash -d surfdir="/home/patrick/build/surf-git/src"
+hash -d dwmdir="/home/$USER/build/dwm-6.0/src"
+hash -d surfdir="/home/$USER/build/surf-git/src"
 
 # Aliases
 alias sz='source ~/.zshrc'
 alias vz='vim ~/.zshrc'
 alias vzh='vim ~/.zsh_history'
+alias dwm='exec ~dwmdir/dwm'
 alias ls='ls --color=auto'
 alias ll='ls -l'
 alias lll='ls -last'
+alias tr2='tree -L 2'
 alias lh='ls -d .* --color=auto'
 alias mirror='sudo ~/scripts/reflect.sh'
 #alias pacinstalled='pacman -Qei | awk '/^Name/ { name=$3 } /^Groups/ { if ( $3 != "base" && $3 != "base-devel" ) { print name } }''
 
-alias mntmtp='if [ -d mtp ]; then; else mkdir /home/patrick/mtp; fi && jmtpfs /home/patrick/mtp'
-alias umntmtp='fusermount -u /home/patrick/mtp && rmdir /home/patrick/mtp'
+alias mntmtp='if [ -d mtp ]; then fusermount -u /home/$USER/mtp; rmdir mtp; else mkdir /home/$USER/mtp; fi && jmtpfs /home/$USER/mtp'
+alias umntmtp='fusermount -u /home/$USER/mtp && rmdir /home/$USER/mtp'
 
 # Requires geoiplookup
 alias ipwhere='geoiplookup $(curl http://ipecho.net/plain 2>/dev/null)'
@@ -74,7 +76,7 @@ alias e2d='google-translate en de $@'
 alias d2e='google-translate de en $@'
 
 #alias mathematica='/home/$USER/bin/mathematica'
-alias mathematica='/home/patrick/bin/Wolfram/Mathematica/10.4/mathematica'
+alias mathematica='/home/$USER/bin/Wolfram/Mathematica/10.4/mathematica'
 # Simple Prompt
 #PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$reset_color%} %{$fg[green]%}>> %{$reset_color%}"
 #PS1="%{$fg[magenta]%}%n%{$reset_color%}@%{$fg[blue]%}%m %{$fg_bold[blue]%}%1~%{$reset_color%} %{$fg[green]%}>> %{$reset_color%}"
@@ -148,3 +150,8 @@ xprop_peek(){
 }
 
 export EDITOR="vim"
+export WINEPREFIX=$HOME/wine32/
+export WINEARCH=win32
+
+export PATH="/home/$USER/bin:/home/$USER/scripts:$PATH"
+export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"

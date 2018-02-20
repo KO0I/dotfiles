@@ -1,4 +1,5 @@
 ! Map umlauts to RIGHT ALT +
+! Key 108 is Right-Alt
 keycode 108 = Mode_switch
 keysym e = e E EuroSign
 keysym c = c C cent
@@ -13,3 +14,7 @@ keysym r = r R Greek_rho  U211D
 keysym t = t T Greek_tau Greek_theta
 ! Math Symbols mapped the same way:
 keysym q = q Q radical U211A
+
+! Capslock into Control
+! TODO see Turn CapsLock into Control, and LeftControl into Hyper
+! https://wiki.archlinux.org/index.php/Xmodmap#Test_changes

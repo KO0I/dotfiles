@@ -1,13 +1,28 @@
-"All plugins managed using git submodules and added using pathogen,
-" which is a submodule itself.
-"runtime bundle/pathogen/autoload/pathogen.vim
-"call pathogen#infect()
-"call pathogen#helptags()
+call plug#begin('~/.vim/plugged')
+"
+"" Superfluous Plugins
+"Plug 'junegunn/vim-easy-align'
+"Plug 'junegunn/goyo.vim'
+"Plug 'gerw/vim-latex-suite'
+Plug 'Yggdroot/indentLine'
+Plug 'jlanzarotta/bufexplorer'
+"Plug 'nachumk/systemverilog.vim'
+"
+"" Init plugin system
+call plug#end()
+
+" Try to configure bufexplorer
+"noremap <silent> <F3> :BufExplorer<CR>
+nnoremap <silent> <F2> :ToggleBufExplorer<CR>
+"nnoremap <silent> <m-F3> :BufExplorerHorizontalSplit<CR>
+"nnoremap <silent> <c-F3> :BufExplorerVerticalSplit<CR>
+
 
 set nocp " turn off vi compatibility
 set nu " Turn on line numbering. (nu|nonu)
 set grepprg=grep\ -nH\ $*
-set noswapfile
+set noswapfile " Live dangerously
+set relativenumber
 
 " enchances % jumping
 packadd! matchit
@@ -55,6 +70,7 @@ set lbr " Wrap text visually (does not insert '\n') (lbr|nolbr)
 "colorscheme jellybeans
 "colorscheme molokai
 colorscheme chasing_logic 
+colorscheme apprentice
 
 
 
@@ -166,22 +182,3 @@ endfunction
 " Configure Indentline
 let g:indentLine_color_term = 0
 
-" Plugin manager vim-plug (junegunn)
-call plug#begin('~/.vim/plugged')
-
-" Superfluous Plugins
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/goyo.vim'
-Plug 'gerw/vim-latex-suite'
-Plug 'Yggdroot/indentLine'
-Plug 'jlanzarotta/bufexplorer'
-Plug 'nachumk/systemverilog.vim'
-
-" Init plugin system
-call plug#end()
-
-" Try to configure bufexplorer
-"noremap <silent> <F3> :BufExplorer<CR>
-nnoremap <silent> <F2> :ToggleBufExplorer<CR>
-"nnoremap <silent> <m-F3> :BufExplorerHorizontalSplit<CR>
-"nnoremap <silent> <c-F3> :BufExplorerVerticalSplit<CR>
