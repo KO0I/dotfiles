@@ -2,11 +2,12 @@ call plug#begin('~/.vim/plugged')
 "
 "" Superfluous Plugins
 "Plug 'junegunn/vim-easy-align'
-"Plug 'junegunn/goyo.vim'
-"Plug 'gerw/vim-latex-suite'
+Plug 'junegunn/goyo.vim'
+Plug 'gerw/vim-latex-suite'
 Plug 'Yggdroot/indentLine'
 Plug 'jlanzarotta/bufexplorer'
-"Plug 'nachumk/systemverilog.vim'
+Plug 'nachumk/systemverilog.vim'
+"Plug 'dracula/vim',{'as':'dracula'}
 "
 "" Init plugin system
 call plug#end()
@@ -34,6 +35,12 @@ filetype plugin indent on
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_ViewRule_pdf='zathura'
+
+" Indentline
+let g:indentLine_setColors = 1
+let g:indentLine_color_term = 239
+let g:indentLine_color_dark = 1
+let g:indentLine_char = '│'
 
 syntax on " Set syntax on
 

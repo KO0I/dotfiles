@@ -1,0 +1,5 @@
+#!/bin/sh
+# Remember, just type dwm& and it will restart
+while '/bin/true'; do
+sleep 1000
+done
