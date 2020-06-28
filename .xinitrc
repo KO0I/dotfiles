@@ -106,7 +106,8 @@ wmname LG3D &
 #exec dwm
 
 # Run Local Build of dwm-6.0
-while true; do ~/.dwmstatus_x250.sh; sleep 30; done &
+#while true; do ~/.dwmstatus_x250.sh; sleep 30; done &
+while true; do ~/.dwmstatus_x250.sh; done &
 exec ~/build/dwm-6.0/src/dwm > dwm.log
 #~/.sleeper &
 #exec openbox
