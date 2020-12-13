@@ -1,0 +1,5 @@
+addpath('/usr/share/openEMS/matlab');
+addpath('/usr/share/CSXCAD/matlab');
+addpath('/usr/local/bin/hyp2mat');
+addpath('/home/patrick/build/CTB');
+

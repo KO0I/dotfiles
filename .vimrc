@@ -7,6 +7,9 @@ Plug 'gerw/vim-latex-suite'
 Plug 'Yggdroot/indentLine'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'nachumk/systemverilog.vim'
+
+Plug 'junegunn/limelight.vim'
+Plug 'dracula/vim'
 "Plug 'dracula/vim',{'as':'dracula'}
 "
 "" Init plugin system
