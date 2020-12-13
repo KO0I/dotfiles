@@ -79,7 +79,7 @@ xmodmap ~/.xmodmap &
 setxkbmap -option ctrl:nocaps &
 
 # use a screensaver for our background
-#xwinwrap -b -fs -sp -fs -nf -ov -- /usr/lib/xscreensaver/klein -root -delay 34513 -view-mode walk -orientation-marks -mode wireframe -appearance solid -colors rainbow -projection-3d orthographic -projection-4d orthographic -walk-speed 1 -root -window-id WID &
+# xwinwrap -b -fs -sp -fs -nf -ov -- /usr/lib/xscreensaver/klein -root -delay 34513 -view-mode walk -orientation-marks -mode wireframe -appearance solid -colors rainbow -projection-3d orthographic -projection-4d orthographic -walk-speed 1 -root -window-id WID &
 
 # Glitch background
 
@@ -105,8 +105,16 @@ wmname LG3D &
 # Run package-managed dwm
 #exec dwm
 
+#For Renoise and possibly other Audio Apps
+export VST_PATH="/home/amber/proj/music_projects/VSTPlugins/VstPlugins"
+
 # Run Local Build of dwm-6.0
-while true; do ~/.dwmstatus_x250.sh; sleep 30; done &
+if [[ $HOST == "seshat" ]] then
+  while true; do ~/dotfiles/dwmstatus_seshat.sh; sleep 1; done &
+else
+  while true; do ~/dotfiles/dwmstatus_teshub.sh; sleep 1; done &
+fi
+#exec ~/build/dwm-6.0/src/dwm_dekstop > dwm.log
 exec ~/build/dwm-6.0/src/dwm > dwm.log
 #~/.sleeper &
 #exec openbox
