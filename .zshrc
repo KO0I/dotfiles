@@ -50,6 +50,7 @@ bindkey "${terminfo[kend]}" end-of-line
 
 hash -d dwmdir="/home/$USER/build/dwm-6.0/src"
 hash -d surfdir="/home/$USER/build/surf-git/src"
+hash -d websitedir="/home/$USER/proj/chipchirp/KO0I.github.io"
 
 # Development
 hash -d blackice_examples="/home/$USER/build/BlackIce-II/examples"
