@@ -1,0 +1,5 @@
+Section "InputClass"
+  Identifier  "Mouse2"
+  Driver      "mouse"
+  Option      "Emulate3Buttons" "yes"
+EndSection

@@ -1,0 +1,3 @@
+SUBSYSTEMS=="usb", KERNEL=="ttyUSB[0-9]*", ATTRS{idVendor}=="0403" , GROUP="uucp", ATTRS{idProduct}=="6001"
+
+SUBSYSTEMS=="usb", KERNEL=="ttyUSB[0-9]*", ATTRS{idVendor}=="0403" , GROUP="uucp", ATTRS{idProduct}=="6015"

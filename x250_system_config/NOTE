@@ -1,0 +1,4 @@
+These files are not going to be installed or anything. They are only here for
+me to remember what udev-rules I have for my devices.
+
+From the file: /etc/udev/rules.d/

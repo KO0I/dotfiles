@@ -1,0 +1,1 @@
+KERNEL=="card0", ACTION=="change", ENV{XAUTHORITY}="/home/patrick/.Xauthority", ENV{DISPLAY}=":0.0", RUN+="/home/patrick/scripts/dp-script.sh"

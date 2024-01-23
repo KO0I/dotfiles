@@ -30,27 +30,30 @@ batt_msg="$b1.$b2"  # ASCII
 
 # Alert user if the battery is full or empty. If bat2 is empty, but bat1 is
 # still ok, then only show the status of the working battery
-if [ $plugged1 == 'Unknown' ] && [ $plugged2 == 'Unknown' ]; then
-  batt_msg="<EMPTY>"
-elif [ $plugged1 != 'Unknown' ] && [ $plugged2 == 'Unknown' ]; then
-  batt_msg="$b1"
-elif [ $plugged1 == 'Full' ] || ([ $plugged2 != 'Full' ] && [\
-  $plugged2 != 'Unknown' ]); then
-  #batt_msg="$b1·$b2"
-  batt_msg="$b1.$b2"  # ASCII
-elif [ $plugged1 == 'Full' ] || [ $plugged1 == 'Full' ]; then
-  batt_msg="<FULL>"
-else batt_msg="error"
-fi
+#if [ $plugged1 == 'Unknown' ] && [ $plugged2 == 'Unknown' ]; then
+#  batt_msg="<EMPTY>"
+#elif [ $plugged1 != 'Unknown' ] && [ $plugged2 == 'Unknown' ]; then
+#  batt_msg="$b1"
+#elif [ $plugged1 == 'Full' ] || ([ $plugged2 != 'Full' ] && [\
+#  $plugged2 != 'Unknown' ]); then
+#  #batt_msg="$b1·$b2"
+#  batt_msg="$b1.$b2"  # ASCII
+#elif [ $plugged1 == 'Full' ] || [ $plugged1 == 'Full' ]; then
+#  batt_msg="<FULL>"
+#else batt_msg="error"
+#fi
+#
+#if [ $plugged1 == 'Charging' ] || [ $plugged2 == 'Charging' ] 
+#then 
+#  batt_msg="$batt_msg++" 
+#fi
+#if [ $plugged1 == 'Discharging' ] || [ $plugged2 == 'Discharging' ] 
+#then
+#  batt_msg="$batt_msg--"
+#fi
 
-if [ $plugged1 == 'Charging' ] || [ $plugged2 == 'Charging' ] 
-then 
-  batt_msg="$batt_msg++" 
-fi
-if [ $plugged1 == 'Discharging' ] || [ $plugged2 == 'Discharging' ] 
-then
-  batt_msg="$batt_msg--"
-fi
+# from ~/scripts
+batt_msg=`check_battery.zsh`
 
 ldate=$(date +%a\ %m.%d.%y)
 lweek=$(date +%W)

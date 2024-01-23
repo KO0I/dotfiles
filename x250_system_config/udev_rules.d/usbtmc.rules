@@ -1,0 +1,8 @@
+# USBTMC instruments
+#
+
+# Agilent DSO-X 2004A
+SUBSYSTEMS=="usb", ACTION=="add", ATTRS{idVendor}=="0957", ATTRS{idProduct}=="179a", GROUP="usbtmc", MODE="0660"
+
+# Rigol DS1100 – ID 1ab1:0588 Rigol Technologies DS1000 SERIES
+SUBSYSTEMS=="usb", ACTION=="add", ATTRS{idVendor}=="1ab1", ATTRS{idProduct}=="0588", GROUP="usbtmc", MODE="0660"

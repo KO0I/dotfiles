@@ -1,0 +1,1 @@
+SUBSYSTEMS=="usb",ATTRS{product}=="Arduino SA",GROUP="users",MODE="0666"
