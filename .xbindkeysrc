@@ -1,0 +1,54 @@
+# Note: add options thinkpad_acip force-load=1 to /etc/modprobe.d/x250.conf
+
+# F4 Mic Mute
+# amixer toggle mic mute TODO I want blinkenligts
+# XF86AudioMicMute
+
+# F7 Projector
+"arandr"
+  XF86Display
+
+# F8 Wlan
+# TODO useful sometimes, but I'd like a confirmation box or SOMETHING
+# Currently used to perform rf-kill
+
+# F9 Tools
+#XF86Tools
+
+# Increase Volume
+"amixer -c 1 set Master 5+"
+  XF86AudioRaiseVolume
+
+# Decrease Volume
+"amixer -c 1 set Master 5-"
+  XF86AudioLowerVolume
+
+# F1 Mute Toggle
+"amixer sset Master toggle; amixer sset Speaker toggle; amixer sset Headphones toggle"
+  XF86AudioMute
+
+# Increase Brightness
+"xbacklight -inc 10"
+  XF86MonBrightnessUp
+
+# Decrease Brightness
+"xbacklight -dec 10"
+  XF86MonBrightnessDown
+
+# Toggle Alsamixer
+"urxvt -e alsamixer -c 1"
+  XF86LaunchA
+# I like the idea of a floating browser window that goes right to Search
+# Engine  
+#"surf https://start.duckduckgo.com"
+"firefox --private-window https://start.duckduckgo.com"
+XF86Search
+
+#XF86Tools
+
+# Lower Brightness
+
+# Capture Scope data from Rigol DS1052E
+# TODO find another button for this
+#"sudo python2 /home/patrick/proj/scope/graph.py"
+# XF86Explorer

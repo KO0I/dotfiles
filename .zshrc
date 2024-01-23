@@ -56,6 +56,7 @@ hash -d websitedir="/home/$USER/proj/chipchirp/KO0I.github.io"
 hash -d blackice_examples="/home/$USER/build/BlackIce-II/examples"
 
 # Aliases
+alias syu='sudo pacman -Syu'
 # TODO a nag for now --------
 alias pacaur='man yay'
 # ---------------------------
@@ -191,7 +192,7 @@ grepr(){
 #Change color temp of screen using redshift
 redshift-to(){
   redshift -x
-  sleep 0.5
+  #sleep 0.0001
   redshift -O $@
 }
 

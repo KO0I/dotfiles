@@ -100,7 +100,7 @@ xbindkeys
 #Fix wonky Java problems:
 wmname LG3D &
 # dwm status bar:
-# source /home/patrick/scripts/.dwmstatus_x250.sh
+# source /home/amber/scripts/.dwmstatus_x250.sh
 
 # Run package-managed dwm
 #exec dwm
@@ -109,15 +109,12 @@ wmname LG3D &
 export VST_PATH="/home/amber/proj/music_projects/VSTPlugins/VstPlugins"
 
 # Run Local Build of dwm-6.0
-if [[ $HOST == "seshat" ]] then
-  while true; do ~/dotfiles/dwmstatus_seshat.sh; sleep 1; done &
-else
-  while true; do ~/dotfiles/dwmstatus_teshub.sh; sleep 1; done &
-fi
+while true; do ~/dotfiles/dwmstatus_teshub.sh; sleep 1; done &
 #exec ~/build/dwm-6.0/src/dwm_dekstop > dwm.log
 exec ~/build/dwm-6.0/src/dwm > dwm.log
+#exec dwm > dwm.log
 #~/.sleeper &
-#exec openbox
+# exec openbox
 
 # Run bspwm
 #sxhkd &

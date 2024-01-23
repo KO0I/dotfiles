@@ -20,5 +20,9 @@ xterm*font:     xft:xos4 Terminus:size=10:antialias=true
 !urxvt.font:     xft:Inconsolata:style=bold:pixelsize=16:antialias=true:hinting=slight
 !urxvt.allow_bold: True
 
+! PD Colors
+*PatchWindow*background: black
+*PatchWindow*foreground: white 
+
 ! IMPORT COLOR
 #include "/home/patrick/.xcolors/ph_golden.xcolors"

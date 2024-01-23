@@ -7,9 +7,10 @@ Plug 'gerw/vim-latex-suite'
 Plug 'Yggdroot/indentLine'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'nachumk/systemverilog.vim'
-
-Plug 'junegunn/limelight.vim'
-Plug 'dracula/vim'
+Plug 'severin-lemaignan/vim-minimap'
+Plug 'joshdick/onedark.vim'
+"Plug 'wfxr/code-minimap'
+Plug 'wfxr/minimap.vim'
 "Plug 'dracula/vim',{'as':'dracula'}
 "
 "" Init plugin system
@@ -81,6 +82,7 @@ set lbr " Wrap text visually (does not insert '\n') (lbr|nolbr)
 "colorscheme molokai
 colorscheme chasing_logic 
 colorscheme apprentice
+colorscheme onedark 
 
 
 
@@ -191,4 +193,6 @@ endfunction
 
 " Configure Indentline
 let g:indentLine_color_term = 0
+
+" Configure severin-lemaignan minimap
 
