@@ -20,8 +20,10 @@ source /usr/share/git/completion/git-completion.bash
   alias python='python2'
 #alias pacmod='sudo pacman -Qii | awk '/^MODIFIED/ \{print $2\}''
 
-# Launch Encrypted Messaging
-alias signalapp='/usr/bin/chromium --profile-directory=Default --app-id=bikioccmkafdpakkkcpdbppfkghcmihk'
+# Up and down history searching like in ZSH:
+bind '"\e[A": history-search-backward'
+bind '"\e[B": history-search-forward'
+
 
 #For German Translations
 alias e2d='trans -b :de $@' 
@@ -109,6 +111,12 @@ man()
     LESS_TERMCAP_ue=$'\E[0m' \
     LESS_TERMCAP_us=$'\E[04;38;5;146m' \
     man "$@"
+}
+
+# List directories after every cd
+cd(){
+	builtin cd "$@" || return
+	ls
 }
 
 # Some little helper functions to quickly convert numbers between bases
