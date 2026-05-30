@@ -43,13 +43,13 @@ alias redwm='cd ~/dwm; updpkgsums; makepkg -fi --noconfirm; killall dwm'
   alias inobu='ino build && ino upload'
   alias inob='ino build'
 # for Android
-  alias mntmtp='mkdir /home/patrick/mtp && jmtpfs /home/patrick/mtp'
-  alias umntmtp='fusermount -u /home/patrick/mtp && rmdir /home/patrick/mtp'
+  alias mntmtp='mkdir /home/$USER/mtp && jmtpfs /home/$USER/mtp'
+  alias umntmtp='fusermount -u /home/$USER/mtp && rmdir /home/$USER/mtp'
 
 # aliases for ECEN stuff
-# alias quartus64='/home/patrick/altera/13.0sp1/quartus/bin/quartus --64bit'
-# alias altera-monitor='/home/patrick/altera/13.0sp1/University_Program/Monitor_Program/bin/altera-monitor-program'
-# alias modelsim='/home/patrick/altera/13.0sp1/modelsim_ase/bin/vsim'
+# alias quartus64='/home/$USER/altera/13.0sp1/quartus/bin/quartus --64bit'
+# alias altera-monitor='/home/$USER/altera/13.0sp1/University_Program/Monitor_Program/bin/altera-monitor-program'
+# alias modelsim='/home/$USER/altera/13.0sp1/modelsim_ase/bin/vsim'
   alias ltspice='wine ~/.wine/drive_c/Program\ Files/LTC/LTSpiceIV/scad3.exe'
 # alias 4nec2='wine ~/.wine/drive_c/4nec2/exe/4nec2.exe'
   alias falstad='java -jar ~/build/falstad/circuit.jar'
@@ -59,7 +59,7 @@ alias redwm='cd ~/dwm; updpkgsums; makepkg -fi --noconfirm; killall dwm'
 # for Mathematica in Command Line
   alias mathmp='/opt/Wolfram/Mathematica/9.0/Executables/MathKernel'
 # for nios2-gcc
-  alias nios2-gcc='/home/patrick/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/nios2-elf-gcc'
+  alias nios2-gcc='/home/$USER/altera/13.0sp1/nios2eds/bin/gnu/H-i686-pc-linux-gnu/bin/nios2-elf-gcc'
 # Other useful things
 # Show size of items
   alias lsd='du -d 1 -h . | sort -n'
@@ -159,6 +159,13 @@ treels(){
   tree -L $@ 
 }
 
+# cd then ls, but not in makefiles, subshells, etc.
+cd() {
+    builtin cd "$@" || return
+    [[ $- == *i* ]] && [ -t 1 ] && [ -z "$MAKEFLAGS" ] && ls
+}
+
+
 export EDITOR="vim"
 
 # remove all previous duplicates in command history before saving the current one
@@ -172,10 +179,10 @@ export LS_COLORS="di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:*.deb=90"
 export PATH="~/bin:~/scripts:~/games/KSP_Linux:/opt/altera/13.0sp1/quartus/bin:/opt/Wolfram/Mathematica/9.0/Executables:$PATH"
 eval $(dircolors -b $HOME/.dircolors)
 
-PATH="/home/patrick/perl5/bin${PATH+:}${PATH}"; export PATH;
-PERL5LIB="/home/patrick/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/home/patrick/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/home/patrick/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/home/patrick/perl5"; export PERL_MM_OPT;
+PATH="/home/$USER/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/home/$USER/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/$USER/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/$USER/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/$USER/perl5"; export PERL_MM_OPT;
 
 export QSYS_ROOTDIR="/home/amber/.cache/yay/quartus-free/pkg/quartus-free-quartus/opt/intelFPGA/20.1/quartus/sopc_builder/bin"
