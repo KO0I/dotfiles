@@ -73,8 +73,8 @@ alias alsamixer='alsamixer -c 1'
 alias tr2='tree -L 2'
 alias lh='ls -d .* --color=auto'
 alias mirror='sudo ~/scripts/reflect.sh'
-alias ssh_hilbert='ssh patrick@hilbert -P 29307'
-alias ssh_jussieu='ssh patrick@jussieu -P 29308'
+alias ssh_hilbert='ssh $USER@hilbert -P 29307'
+alias ssh_jussieu='ssh $USER@jussieu -P 29308'
 alias wine64='WINEARCH=win64 WINEPREFIX=~/win64 wine'
 alias tos=./thinkorswim/thinkorswim
 #alias pacinstalled='pacman -Qei | awk '/^Name/ { name=$3 } /^Groups/ { if ( $3 != "base" && $3 != "base-devel" ) { print name } }''
@@ -83,16 +83,16 @@ alias vivado='/opt/Xilinx/Vivado/2019.2/bin/vivado_hls'
 
 #5224 School stuff
 alias ads='/usr/local/ADS2019/bin/ads'
-alias rdpconway='rdesktop -g 1440x900 -P -z -x l -u Patrick everybodydoesthe.dyn-o-saur.com:3389'
-alias mntconway='mount.cifs //192.168.11.10/Shared conway_Shared -o user=Patrick'
+alias rdpconway='rdesktop -g 1440x900 -P -z -x l -u $USER everybodydoesthe.dyn-o-saur.com:3389'
+alias mntconway='mount.cifs //192.168.11.10/Shared conway_Shared -o user=$USER'
 alias umntconway='umount -l conway_Shared'
 alias ltspice='WINEARCH=win64 WINEPREFIX=~/win64 wine ~/win64/drive_c/Program\ Files/LTC/LTspiceXVII/XVIIx64.exe'
 alias si9000='WINEARCH=win64 WINEPREFIX=~/win64 wine ~/win64/drive_c/Program\ Files\ \(x86\)/Polar/Si9000/Si9000FieldSolver.exe'
 alias hyperlynx='WINEARCH=win64 WINEPREFIX=~/win64 wine ~/win64/drive_c/MentorGraphics/9.4.1HL/SDD_HOME/hyperlynx64/bsw.exe'
 
 #5813 School stuff
-alias 5813_git='/home/patrick/school/5813_PES/projects'
-alias mcuworkspace='/home/patrick/Documents/MCUXpresso*/workspace'
+alias 5813_git='/home/$USER/school/5813_PES/projects'
+alias mcuworkspace='/home/$USER/Documents/MCUXpresso*/workspace'
 alias mcuxpresso='/usr/local/mcuxpresso-ide/ide/mcuxpressoide'
 
 alias mcuxpresso='/usr/local/mcuxpresso-ide/ide/mcuxpressoide'
