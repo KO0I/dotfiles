@@ -55,6 +55,17 @@ export PKG_CONFIG_PATH="/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH"
 xset +fp /usr/share/fonts/local
 xset fp rehash
 
+# Workaround if the lower xset workaround failed:
+# Set Mesa debug flags before starting anything graphical
+export AMD_DEBUG=nodcc,nohyperz
+export MESA_SHADER_CACHE_DISABLE=1
+
+# Workaround for dropped screen freezup, already applied tho!
+xset -dpms
+xset s off
+xset s noblank
+
+
 # I like automatic numlock
 #numlockx
 # merge Xresources into urxvt settings
@@ -89,6 +100,13 @@ setxkbmap -option ctrl:nocaps &
 # we can alternatively use a wallpaper
 # feh --bg-scale ~/pictures/wallpaper.png
 
+# Update colors of dwm from nitrogen
+nitrogen_wallpaper="$(sed -n 's/^file=//p' "$HOME/.config/nitrogen/bg-saved.cfg" | head -n 1)"
+
+if [ -n "$nitrogen_wallpaper" ] && [ -r "$nitrogen_wallpaper" ]; then
+  wallust run -q -s -w "$nitrogen_wallpaper"
+fi
+
 #  Using nitrogen:
 nitrogen --restore &
 
@@ -100,7 +118,7 @@ xbindkeys
 #Fix wonky Java problems:
 wmname LG3D &
 # dwm status bar:
-# source /home/patrick/scripts/.dwmstatus_x250.sh
+# source /home/amber/scripts/.dwmstatus_x250.sh
 
 # Run package-managed dwm
 #exec dwm
@@ -109,13 +127,16 @@ wmname LG3D &
 export VST_PATH="/home/amber/proj/music_projects/VSTPlugins/VstPlugins"
 
 # Run Local Build of dwm-6.0
-if [[ $HOST == "seshat" ]] then
+#if [[ $HOST == "seshat" ]] then
   while true; do ~/dotfiles/dwmstatus_seshat.sh; sleep 1; done &
-else
-  while true; do ~/dotfiles/dwmstatus_teshub.sh; sleep 1; done &
-fi
+#else
+#  while true; do ~/dotfiles/dwmstatus_teshub.sh; sleep 1; done &
+#fi
+
+#picom -b
 #exec ~/build/dwm-6.0/src/dwm_dekstop > dwm.log
-exec ~/build/dwm-6.0/src/dwm > dwm.log
+#exec ~/build/dwm-6.0/src/dwm > dwm.log
+exec ~/build/dwm-6.8/src/dwm > dwm68.log
 #~/.sleeper &
 #exec openbox
 

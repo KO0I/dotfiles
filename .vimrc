@@ -9,7 +9,9 @@ Plug 'jlanzarotta/bufexplorer'
 Plug 'nachumk/systemverilog.vim'
 
 Plug 'junegunn/limelight.vim'
-Plug 'dracula/vim'
+Plug 'JamshedVesuna/vim-markdown-preview'
+"Plug 'iamcco/markdown-preview.vim'
+"Plug 'dracula/dracula.vim'
 "Plug 'dracula/vim',{'as':'dracula'}
 "
 "" Init plugin system
@@ -38,6 +40,9 @@ filetype plugin indent on
 let g:tex_flavor='latex'
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_ViewRule_pdf='zathura'
+
+" Maybe not needed for chipchirp previewing
+let vim_markdown_preview_github=1
 
 " Indentline
 let g:indentLine_setColors = 1
