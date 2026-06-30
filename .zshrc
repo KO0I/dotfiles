@@ -65,6 +65,7 @@ hash -d rflc="/home/$USER/proj/codex"
 alias sz='source ~/.zshrc'
 alias vz='vim ~/.zshrc'
 alias vzh='vim ~/.zsh_history'
+alias vv='vim ~/.vimrc'
 alias dwm='exec ~dwmdir/dwm'
 alias ls='ls --color=auto'
 alias ll='ls -l'
@@ -93,7 +94,8 @@ alias xfdtd=/usr/local/remcom/XFdtd_7.8.1.4/bin/Linux-x86_64UBNT18/xfdtd
 alias xf=xfdtd
 
 #alias mathematica='/home/$USER/bin/mathematica'
-alias mathematica='/usr/local/Wolfram/Mathematica/12.1/Executables/mathematica'
+alias mathematica12='/usr/local/Wolfram/Mathematica/12.1/Executables/mathematica'
+alias mathematica='/opt/Mathematica/Executables/math'
 
 # dotnet/ilspycmd
 export PATH="$PATH:/home/amber/.dotnet/tools"
@@ -179,3 +181,8 @@ export PATH="$(ruby -e 'print Gem.user_dir')/bin:$PATH"
 #For Renoise and possibly other Audio Apps
 export VST_PATH="/home/$USER/proj/music_projects/VSTPlugins/VstPlugins"
 export PATH="$HOME/.local/bin:$PATH"
+
+# Obsidian Vault
+hash -d hermes-vault="/home/amber/Documents/ChipChirp/Hermes-Agent"
+hash -d vault="$HOME/Documents/ChipChirp"
+export OBSIDIAN_VAULT_PATH="$HOME/Documents/ChipChirp/Hermes-Agent"

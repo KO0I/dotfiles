@@ -7,9 +7,11 @@ Plug 'gerw/vim-latex-suite'
 Plug 'Yggdroot/indentLine'
 Plug 'jlanzarotta/bufexplorer'
 Plug 'nachumk/systemverilog.vim'
+Plug 'mechatroner/rainbow_csv'
+Plug 'dense-analysis/ale'
 
 Plug 'junegunn/limelight.vim'
-Plug 'JamshedVesuna/vim-markdown-preview'
+"Plug 'JamshedVesuna/vim-markdown-preview'
 "Plug 'iamcco/markdown-preview.vim'
 "Plug 'dracula/dracula.vim'
 "Plug 'dracula/vim',{'as':'dracula'}
